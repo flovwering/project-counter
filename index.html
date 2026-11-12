@@ -849,120 +849,109 @@
   <!-- Layer Partikel Perayaan -->
   <div class="fx-layer" id="fxLayer"></div>
 
-  
   <main class="card" id="mainCard">
-    
-    <!-- 1. SUDUT KIRI ATAS: BUNGA MATAHARI (SUNFLOWER) -->
-<svg class="corner-bouquet bouquet-tl" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dedaunan Hijau -->
-  <path d="M56 38C74 28 92 34 96 48C80 54 64 48 56 38Z" fill="#52B788"/>
-  <path d="M36 58C24 76 30 94 44 98C52 82 46 66 36 58Z" fill="#40916C"/>
-  <!-- Kelopak Runcing Bunga Matahari (12 Kelopak) -->
-  <g transform="translate(36, 36)">
-    <g fill="#FFB703">
-      <ellipse cx="0" cy="-22" rx="5.5" ry="15"/>
-      <ellipse cx="0" cy="22" rx="5.5" ry="15"/>
-      <ellipse cx="-22" cy="0" rx="15" ry="5.5"/>
-      <ellipse cx="22" cy="0" rx="15" ry="5.5"/>
-      <ellipse cx="0" cy="-22" rx="5.5" ry="15" transform="rotate(30)"/>
-      <ellipse cx="0" cy="-22" rx="5.5" ry="15" transform="rotate(60)"/>
-      <ellipse cx="0" cy="-22" rx="5.5" ry="15" transform="rotate(120)"/>
-      <ellipse cx="0" cy="-22" rx="5.5" ry="15" transform="rotate(150)"/>
-      <ellipse cx="0" cy="-22" rx="5.5" ry="15" transform="rotate(210)"/>
-      <ellipse cx="0" cy="-22" rx="5.5" ry="15" transform="rotate(240)"/>
-      <ellipse cx="0" cy="-22" rx="5.5" ry="15" transform="rotate(300)"/>
-      <ellipse cx="0" cy="-22" rx="5.5" ry="15" transform="rotate(330)"/>
-    </g>
-    <!-- Kelopak Lapis Dalam Lebih Cerah -->
-    <g fill="#FFD166">
-      <ellipse cx="0" cy="-18" rx="4" ry="11" transform="rotate(15)"/>
-      <ellipse cx="0" cy="-18" rx="4" ry="11" transform="rotate(75)"/>
-      <ellipse cx="0" cy="-18" rx="4" ry="11" transform="rotate(135)"/>
-      <ellipse cx="0" cy="-18" rx="4" ry="11" transform="rotate(195)"/>
-      <ellipse cx="0" cy="-18" rx="4" ry="11" transform="rotate(255)"/>
-      <ellipse cx="0" cy="-18" rx="4" ry="11" transform="rotate(315)"/>
-    </g>
-    <!-- Tengah Biji Bunga Matahari -->
-    <circle cx="0" cy="0" r="12" fill="#5C3A21"/>
-    <circle cx="0" cy="0" r="9.5" fill="#7F4F24" stroke="#3D2412" stroke-width="1.5" stroke-dasharray="2 2"/>
-    <circle cx="-3" cy="-3" r="1.2" fill="#E6CCB2"/>
-    <circle cx="3" cy="-2" r="1.2" fill="#E6CCB2"/>
-    <circle cx="0" cy="3" r="1.2" fill="#E6CCB2"/>
-  </g>
-</svg>
+    <!-- Buket Bunga Kanan Atas: Sakura Pink + Buttercup Kuning + Lavender + Daun Sage -->
+    <div class="corner-decor corner-top-right" aria-hidden="true">
+      <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Dedaunan Sage -->
+        <path d="M90 36C72 28 56 38 54 54C70 56 84 48 90 36Z" fill="#68B08B" opacity="0.9"/>
+        <path d="M96 72C108 58 106 40 92 34C84 48 86 62 96 72Z" fill="#5EA683" opacity="0.82"/>
+        <path d="M62 24C52 14 38 16 34 28C46 32 56 30 62 24Z" fill="#82C4A1" opacity="0.85"/>
+        <!-- Bunga Utama: Pink Sakura -->
+        <g transform="translate(92, 36)">
+          <ellipse cx="0" cy="-17" rx="9" ry="14" fill="#FF759F"/>
+          <ellipse cx="16" cy="-5" rx="9" ry="14" transform="rotate(72 16 -5)" fill="#FF759F"/>
+          <ellipse cx="10" cy="14" rx="9" ry="14" transform="rotate(144 10 14)" fill="#FF759F"/>
+          <ellipse cx="-10" cy="14" rx="9" ry="14" transform="rotate(216 -10 14)" fill="#FF759F"/>
+          <ellipse cx="-16" cy="-5" rx="9" ry="14" transform="rotate(288 -16 -5)" fill="#FF759F"/>
+          <circle cx="0" cy="0" r="7.5" fill="#FFD166"/>
+        </g>
+        <!-- Bunga Pendamping 1: Buttercup Kuning -->
+        <g transform="translate(60, 22)">
+          <ellipse cx="0" cy="-10" rx="5.5" ry="8.5" fill="#FFD166"/>
+          <ellipse cx="9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(72 9.5 -3)" fill="#FFD166"/>
+          <ellipse cx="6" cy="8" rx="5.5" ry="8.5" transform="rotate(144 6 8)" fill="#FFD166"/>
+          <ellipse cx="-6" cy="8" rx="5.5" ry="8.5" transform="rotate(216 -6 8)" fill="#FFD166"/>
+          <ellipse cx="-9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(288 -9.5 -3)" fill="#FFD166"/>
+          <circle cx="0" cy="0" r="4.5" fill="#F28C38"/>
+        </g>
+        <!-- Bunga Pendamping 2: Lavender Lilac -->
+        <g transform="translate(106, 68)">
+          <ellipse cx="0" cy="-9" rx="5" ry="8" fill="#B892FF"/>
+          <ellipse cx="8.5" cy="-3" rx="5" ry="8" transform="rotate(72 8.5 -3)" fill="#B892FF"/>
+          <ellipse cx="5.5" cy="7.5" rx="5" ry="8" transform="rotate(144 5.5 7.5)" fill="#B892FF"/>
+          <ellipse cx="-5.5" cy="7.5" rx="5" ry="8" transform="rotate(216 -5.5 7.5)" fill="#B892FF"/>
+          <ellipse cx="-8.5" cy="-3" rx="5" ry="8" transform="rotate(288 -8.5 -3)" fill="#B892FF"/>
+          <circle cx="0" cy="0" r="4" fill="#FF9EBB"/>
+        </g>
+      </svg>
+    </div>
 
-<!-- 2. SUDUT KANAN ATAS: BUNGA MAWAR (ROSE) -->
-<svg class="corner-bouquet bouquet-tr" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dedaunan Bergerigi Mawar -->
-  <path d="M72 34C54 24 38 30 34 44C50 50 64 44 72 34Z" fill="#52B788"/>
-  <path d="M94 58C106 76 100 94 86 98C78 82 84 66 94 58Z" fill="#40916C"/>
-  <!-- Lapisan Kelopak Mawar Berlapis -->
-  <g transform="translate(92, 38)">
-    <!-- Kelopak Luar -->
-    <circle cx="-11" cy="-9" r="14" fill="#D90429"/>
-    <circle cx="12" cy="-7" r="14" fill="#EF233C"/>
-    <circle cx="9" cy="12" r="14" fill="#D90429"/>
-    <circle cx="-11" cy="10" r="14" fill="#EF233C"/>
-    <!-- Kelopak Tengah -->
-    <path d="M-15 -2 C-15 -16, 15 -16, 15 -2 C15 12, -15 12, -15 -2 Z" fill="#FF4D6D"/>
-    <path d="M-12 5 C-12 -8, 12 -8, 12 5 C12 16, -12 16, -12 5 Z" fill="#FF758F"/>
-    <!-- Pusaran Tengah Mawar -->
-    <path d="M0 -8 C8 -8, 10 2, 4 7 C-2 11, -10 6, -8 -1 C-6 -6, 2 -6, 4 -1 C5 2, 1 4, -2 2" 
-          stroke="#A4133C" stroke-width="2.6" stroke-linecap="round" fill="#FF8FA3"/>
-  </g>
-</svg>
+    <!-- Bunga Kecil Kiri Atas: Sky Bluebell & Daun -->
+    <div class="corner-decor corner-top-left" aria-hidden="true">
+      <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28 28C42 22 52 30 52 42C40 44 32 38 28 28Z" fill="#68B08B" opacity="0.82"/>
+        <g transform="translate(26, 26)">
+          <ellipse cx="0" cy="-11" rx="6" ry="9.5" fill="#72BDFF"/>
+          <ellipse cx="10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(72 10.5 -3.5)" fill="#72BDFF"/>
+          <ellipse cx="6.5" cy="9" rx="6" ry="9.5" transform="rotate(144 6.5 9)" fill="#72BDFF"/>
+          <ellipse cx="-6.5" cy="9" rx="6" ry="9.5" transform="rotate(216 -6.5 9)" fill="#72BDFF"/>
+          <ellipse cx="-10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(288 -10.5 -3.5)" fill="#72BDFF"/>
+          <circle cx="0" cy="0" r="4.8" fill="#FFD166"/>
+        </g>
+      </svg>
+    </div>
 
-<!-- 3. SUDUT KIRI BAWAH: BUNGA SAKURA (CHERRY BLOSSOM) -->
-<svg class="corner-bouquet bouquet-bl" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Ranting & Daun Muda -->
-  <path d="M22 108 Q 52 86 88 94" stroke="#8D6E63" stroke-width="3" stroke-linecap="round"/>
-  <path d="M62 91 C74 80 88 82 92 92 C78 96 68 95 62 91Z" fill="#74C69D"/>
-  <!-- 5 Kelopak Sakura Berlekuk (Notched Petals) -->
-  <g transform="translate(40, 88)">
-    <g fill="#FF8FAB" stroke="#FF5D8F" stroke-width="0.8">
-      <path d="M0 0 C-9 -10, -11 -23, -3 -26 L0 -21 L3 -26 C11 -23, 9 -10, 0 0 Z" transform="rotate(0)"/>
-      <path d="M0 0 C-9 -10, -11 -23, -3 -26 L0 -21 L3 -26 C11 -23, 9 -10, 0 0 Z" transform="rotate(72)"/>
-      <path d="M0 0 C-9 -10, -11 -23, -3 -26 L0 -21 L3 -26 C11 -23, 9 -10, 0 0 Z" transform="rotate(144)"/>
-      <path d="M0 0 C-9 -10, -11 -23, -3 -26 L0 -21 L3 -26 C11 -23, 9 -10, 0 0 Z" transform="rotate(216)"/>
-      <path d="M0 0 C-9 -10, -11 -23, -3 -26 L0 -21 L3 -26 C11 -23, 9 -10, 0 0 Z" transform="rotate(288)"/>
-    </g>
-    <!-- Putik Benang Sari Sakura -->
-    <circle cx="0" cy="0" r="4.5" fill="#C9184A"/>
-    <line x1="0" y1="0" x2="-6" y2="-8" stroke="#FFE5EC" stroke-width="1.2"/>
-    <line x1="0" y1="0" x2="7" y2="-6" stroke="#FFE5EC" stroke-width="1.2"/>
-    <line x1="0" y1="0" x2="5" y2="7" stroke="#FFE5EC" stroke-width="1.2"/>
-    <line x1="0" y1="0" x2="-6" y2="6" stroke="#FFE5EC" stroke-width="1.2"/>
-    <circle cx="-6" cy="-8" r="1.4" fill="#FFD166"/>
-    <circle cx="7" cy="-6" r="1.4" fill="#FFD166"/>
-    <circle cx="5" cy="7" r="1.4" fill="#FFD166"/>
-    <circle cx="-6" cy="6" r="1.4" fill="#FFD166"/>
-  </g>
-</svg>
+    <!-- Buket Bunga Kiri Bawah: Lavender Ungu + Peach Coral + Sky Bluebell + Daun Sage -->
+    <div class="corner-decor corner-bottom-left" aria-hidden="true">
+      <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Dedaunan Sage -->
+        <path d="M38 92C56 100 72 90 74 74C58 72 44 80 38 92Z" fill="#68B08B" opacity="0.9"/>
+        <path d="M32 56C20 70 22 88 36 94C44 80 42 66 32 56Z" fill="#5EA683" opacity="0.82"/>
+        <!-- Bunga Utama: Lavender Lilac -->
+        <g transform="translate(36, 92)">
+          <ellipse cx="0" cy="-17" rx="9" ry="14" fill="#B892FF"/>
+          <ellipse cx="16" cy="-5" rx="9" ry="14" transform="rotate(72 16 -5)" fill="#B892FF"/>
+          <ellipse cx="10" cy="14" rx="9" ry="14" transform="rotate(144 10 14)" fill="#B892FF"/>
+          <ellipse cx="-10" cy="14" rx="9" ry="14" transform="rotate(216 -10 14)" fill="#B892FF"/>
+          <ellipse cx="-16" cy="-5" rx="9" ry="14" transform="rotate(288 -16 -5)" fill="#B892FF"/>
+          <circle cx="0" cy="0" r="7.5" fill="#FFD166"/>
+        </g>
+        <!-- Bunga Pendamping 1: Peach Coral -->
+        <g transform="translate(68, 106)">
+          <ellipse cx="0" cy="-10" rx="5.5" ry="8.5" fill="#FF9770"/>
+          <ellipse cx="9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(72 9.5 -3)" fill="#FF9770"/>
+          <ellipse cx="6" cy="8" rx="5.5" ry="8.5" transform="rotate(144 6 8)" fill="#FF9770"/>
+          <ellipse cx="-6" cy="8" rx="5.5" ry="8.5" transform="rotate(216 -6 8)" fill="#FF9770"/>
+          <ellipse cx="-9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(288 -9.5 -3)" fill="#FF9770"/>
+          <circle cx="0" cy="0" r="4.5" fill="#FFF3B0"/>
+        </g>
+        <!-- Bunga Pendamping 2: Sky Bluebell -->
+        <g transform="translate(22, 60)">
+          <ellipse cx="0" cy="-9" rx="5" ry="8" fill="#72BDFF"/>
+          <ellipse cx="8.5" cy="-3" rx="5" ry="8" transform="rotate(72 8.5 -3)" fill="#72BDFF"/>
+          <ellipse cx="5.5" cy="7.5" rx="5" ry="8" transform="rotate(144 5.5 7.5)" fill="#72BDFF"/>
+          <ellipse cx="-5.5" cy="7.5" rx="5" ry="8" transform="rotate(216 -5.5 7.5)" fill="#72BDFF"/>
+          <ellipse cx="-8.5" cy="-3" rx="5" ry="8" transform="rotate(288 -8.5 -3)" fill="#72BDFF"/>
+          <circle cx="0" cy="0" r="4" fill="#FFD166"/>
+        </g>
+      </svg>
+    </div>
 
-<!-- 4. SUDUT KANAN BAWAH: BUNGA DAISY (WHITE & YELLOW DAISY) -->
-<svg class="corner-bouquet bouquet-br" viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Dedaunan Segar -->
-  <path d="M72 96C54 106 38 100 34 86C50 80 64 86 72 96Z" fill="#52B788"/>
-  <path d="M96 72C106 54 100 38 86 34C80 50 86 64 96 72Z" fill="#74C69D"/>
-  <!-- Kelopak Panjang Putih Daisy (10 Kelopak) -->
-  <g transform="translate(90, 90)">
-    <g fill="#FFFFFF" stroke="#E2D4E0" stroke-width="1.2">
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(0)"/>
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(36)"/>
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(72)"/>
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(108)"/>
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(144)"/>
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(180)"/>
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(216)"/>
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(252)"/>
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(288)"/>
-      <ellipse cx="0" cy="-19" rx="5.2" ry="14" transform="rotate(324)"/>
-    </g>
-    <!-- Putik Kuning Cerah Daisy -->
-    <circle cx="0" cy="0" r="9.5" fill="#FFB703"/>
-    <circle cx="0" cy="0" r="6.5" fill="#FFD166"/>
-  </g>
-</svg>
+    <!-- Bunga Kecil Kanan Bawah: Buttercup Kuning & Daun -->
+    <div class="corner-decor corner-bottom-right" aria-hidden="true">
+      <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M62 62C48 68 38 60 38 48C50 46 58 52 62 62Z" fill="#68B08B" opacity="0.82"/>
+        <g transform="translate(64, 64)">
+          <ellipse cx="0" cy="-11" rx="6" ry="9.5" fill="#FFD166"/>
+          <ellipse cx="10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(72 10.5 -3.5)" fill="#FFD166"/>
+          <ellipse cx="6.5" cy="9" rx="6" ry="9.5" transform="rotate(144 6.5 9)" fill="#FFD166"/>
+          <ellipse cx="-6.5" cy="9" rx="6" ry="9.5" transform="rotate(216 -6.5 9)" fill="#FFD166"/>
+          <ellipse cx="-10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(288 -10.5 -3.5)" fill="#FFD166"/>
+          <circle cx="0" cy="0" r="4.8" fill="#FF759F"/>
+        </g>
+      </svg>
+    </div>
 
     <div class="content">
       <!-- Header -->
