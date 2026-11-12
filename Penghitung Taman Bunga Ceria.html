@@ -1,0 +1,1488 @@
+  <title>Penghitung Taman Bunga Ceria</title>
+  <!-- Google Fonts: Fredoka (Angka Playful) & Plus Jakarta Sans (Teks Utama) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ==========================================
+       VARIABEL WARNA: TAMAN BUNGA WARNA-WARNI
+       Sakura Pink, Buttercup Yellow, Lavender Lilac, Sky Bluebell, Peach Coral & Sage Leaf
+       ========================================== */
+    :root {
+      --bg-main: #FFF8F3;
+      --bg-sakura: rgba(255, 143, 171, 0.22);
+      --bg-buttercup: rgba(255, 209, 102, 0.24);
+      --bg-lavender: rgba(184, 146, 255, 0.20);
+      --bg-bluebell: rgba(114, 189, 255, 0.20);
+      --card-bg: #FFFDFB;
+      --card-border: #F5C6D6;
+      --text-primary: #572742;
+      --text-secondary: #8C5A75;
+      /* Gradien Angka: Harmoni Bunga Taman (Coral Rose -> Buttercup Marigold -> Lavender Bloom) */
+      --num-start: #E84A7F;
+      --num-mid: #F28C38;
+      --num-end: #8E54E9;
+      --num-shadow: rgba(232, 74, 127, 0.24);
+      --btn-plus: #F2648D;
+      --btn-plus-hover: #E04E78;
+      --btn-minus: #5EA683;
+      --btn-minus-hover: #4C9170;
+      --btn-step-active: #F2A341;
+      --btn-reset: #9A72CF;
+      --btn-reset-hover: #855DBA;
+      --surface-soft: #FFF2F6;
+      --progress-bg: #F6DCE5;
+      --accent-glow: rgba(242, 100, 141, 0.28);
+      --shadow-card: 0 20px 45px -12px rgba(142, 84, 233, 0.14), 0 8px 20px -8px rgba(242, 100, 141, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-main);
+      background-image:
+        radial-gradient(circle at 12% 16%, var(--bg-sakura) 0%, transparent 36%),
+        radial-gradient(circle at 88% 18%, var(--bg-buttercup) 0%, transparent 36%),
+        radial-gradient(circle at 15% 86%, var(--bg-bluebell) 0%, transparent 38%),
+        radial-gradient(circle at 86% 84%, var(--bg-lavender) 0%, transparent 38%),
+        radial-gradient(#F2C8D8 1.4px, transparent 1.4px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 22px 22px;
+      color: var(--text-primary);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Bunga Latar Belakang Lembut Melayang */
+    .bg-garden {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bg-blossom {
+      position: absolute;
+      opacity: 0.42;
+      animation: gentleSway 7s ease-in-out infinite alternate;
+    }
+
+    .bg-blossom.b1 { top: 6%; left: 7%; width: 54px; animation-delay: 0s; }
+    .bg-blossom.b2 { top: 10%; right: 8%; width: 48px; animation-delay: 1.5s; }
+    .bg-blossom.b3 { bottom: 8%; left: 9%; width: 50px; animation-delay: 2.5s; }
+    .bg-blossom.b4 { bottom: 7%; right: 7%; width: 56px; animation-delay: 1s; }
+
+    @keyframes gentleSway {
+      0%   { transform: translateY(0) rotate(-6deg) scale(0.98); }
+      100% { transform: translateY(-10px) rotate(8deg) scale(1.04); }
+    }
+
+    /* Ukuran ringkas & proporsional di desktop (max-width 375px) */
+    .card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 375px;
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 28px;
+      padding: 20px 20px 18px;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Hiasan Buket Bunga Warna-warni di Sudut Kartu */
+    .corner-decor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .corner-top-right {
+      top: -10px;
+      right: -10px;
+      width: 112px;
+      height: 112px;
+    }
+
+    .corner-top-left {
+      top: -10px;
+      left: -10px;
+      width: 82px;
+      height: 82px;
+    }
+
+    .corner-bottom-left {
+      bottom: -12px;
+      left: -12px;
+      width: 108px;
+      height: 108px;
+    }
+
+    .corner-bottom-right {
+      bottom: -10px;
+      right: -10px;
+      width: 80px;
+      height: 80px;
+    }
+
+    .card.bloom .corner-top-right {
+      transform: rotate(12deg) scale(1.12);
+    }
+
+    .card.bloom .corner-top-left {
+      transform: rotate(-14deg) scale(1.1);
+    }
+
+    .card.bloom .corner-bottom-left {
+      transform: rotate(-12deg) scale(1.12);
+    }
+
+    .card.bloom .corner-bottom-right {
+      transform: rotate(14deg) scale(1.1);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header: Bar Kontrol Atas + Judul Rename + Subjudul */
+    .header {
+      margin-bottom: 12px;
+    }
+
+    .header-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .badge-save {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255, 253, 251, 0.88);
+      backdrop-filter: blur(4px);
+      border: 1px solid var(--card-border);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+
+    .dot-live {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--btn-minus);
+      box-shadow: 0 0 0 2.5px rgba(94, 166, 131, 0.24);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .icon-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      border: 1.5px solid var(--card-border);
+      background: rgba(255, 253, 251, 0.9);
+      color: var(--text-primary);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      font-size: 0.95rem;
+      transition: transform 0.18s ease, background-color 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-1.5px);
+    }
+
+    .icon-btn:active {
+      transform: scale(0.92);
+    }
+
+    /* Judul Counter yang Bisa Di-rename + Subjudul */
+    .title-area {
+      text-align: center;
+      padding: 2px 4px;
+    }
+
+    .title-edit-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      max-width: 100%;
+      background: rgba(255, 242, 246, 0.85);
+      border: 1.5px dashed transparent;
+      border-radius: 12px;
+      padding: 3px 10px;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .title-edit-wrapper:hover,
+    .title-edit-wrapper:focus-within {
+      border-color: var(--card-border);
+      background: var(--card-bg);
+    }
+
+    .counter-title-input {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      background: transparent;
+      border: none;
+      outline: none;
+      text-align: center;
+      width: 195px;
+      max-width: 65vw;
+      text-overflow: ellipsis;
+    }
+
+    .edit-pencil-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 2px;
+      line-height: 1;
+      opacity: 0.75;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .edit-pencil-btn:hover {
+      opacity: 1;
+      transform: scale(1.12);
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      letter-spacing: 0.01em;
+    }
+
+    .brand-subtitle em {
+      font-style: italic;
+      font-weight: 700;
+      color: var(--btn-plus);
+    }
+
+    /* Area Tampilan Angka Utama */
+    .counter-stage {
+      position: relative;
+      background: linear-gradient(145deg, #FFF3F7 0%, #FFF9EC 52%, #F5F1FF 100%);
+      border: 1.5px solid var(--card-border);
+      border-radius: 22px;
+      padding: 18px 14px 16px;
+      text-align: center;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .milestone-banner {
+      display: inline-block;
+      min-height: 22px;
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+      opacity: 0;
+      transform: translateY(5px) scale(0.9);
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .milestone-banner.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .milestone-banner.half {
+      background: rgba(242, 163, 65, 0.22);
+      color: var(--text-primary);
+      border: 1px solid rgba(242, 163, 65, 0.55);
+    }
+
+    .milestone-banner.full {
+      background: linear-gradient(90deg, rgba(242, 100, 141, 0.22), rgba(154, 114, 207, 0.22));
+      color: var(--text-primary);
+      border: 1px solid var(--btn-plus);
+    }
+
+    /* Angka Fredoka Bergradasi Bunga Taman (Compact di desktop: 3.75rem) */
+    .counter-value {
+      font-family: 'Fredoka', cursive, sans-serif;
+      font-size: 3.75rem;
+      font-weight: 700;
+      line-height: 1.05;
+      background: linear-gradient(135deg, var(--num-start) 0%, var(--num-mid) 52%, var(--num-end) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 5px 10px var(--num-shadow));
+      user-select: none;
+      display: inline-block;
+      will-change: transform;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Keyframes Animasi Ceria */
+    @keyframes cheerUp {
+      0%   { transform: scale(0.82) translateY(14px) rotate(-6deg); }
+      45%  { transform: scale(1.22) translateY(-10px) rotate(5deg); }
+      72%  { transform: scale(0.94) translateY(3px) rotate(-2deg); }
+      100% { transform: scale(1) translateY(0) rotate(0deg); }
+    }
+
+    @keyframes cheerDown {
+      0%   { transform: scale(1.14) translateY(-10px) rotate(5deg); }
+      45%  { transform: scale(0.84) translateY(10px) rotate(-5deg); }
+      75%  { transform: scale(1.05) translateY(-2px) rotate(2deg); }
+      100% { transform: scale(1) translateY(0) rotate(0deg); }
+    }
+
+    @keyframes resetWiggle {
+      0%   { transform: scale(1) rotate(0deg); }
+      25%  { transform: scale(0.85) rotate(-10deg); }
+      55%  { transform: scale(1.12) rotate(8deg); }
+      80%  { transform: scale(0.96) rotate(-3deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    @keyframes halfPulse {
+      0%   { transform: scale(1); }
+      30%  { transform: scale(1.26) rotate(-4deg); }
+      60%  { transform: scale(1.12) rotate(4deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    @keyframes grandCelebrate {
+      0%   { transform: scale(0.85) rotate(0deg); }
+      25%  { transform: scale(1.32) rotate(-8deg); }
+      50%  { transform: scale(1.22) rotate(8deg); }
+      75%  { transform: scale(1.28) rotate(-4deg); }
+      100% { transform: scale(1) rotate(0deg); }
+    }
+
+    .anim-up { animation: cheerUp 0.44s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .anim-down { animation: cheerDown 0.42s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .anim-reset { animation: resetWiggle 0.45s ease; }
+    .anim-half { animation: halfPulse 0.65s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .anim-full { animation: grandCelebrate 0.85s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+    /* Gelembung Angka Melayang (+1 / -1 / +5 / -5 / +10 / -10) */
+    .delta-pop {
+      position: absolute;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      pointer-events: none;
+      animation: floatDelta 0.7s ease-out forwards;
+    }
+
+    @keyframes floatDelta {
+      0%   { opacity: 1; transform: translate(-50%, 0) scale(0.7); }
+      40%  { opacity: 1; transform: translate(-50%, -24px) scale(1.15); }
+      100% { opacity: 0; transform: translate(-50%, -46px) scale(0.95); }
+    }
+
+    /* Layer Partikel Bunga Terbang */
+    .fx-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      overflow: hidden;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      user-select: none;
+      pointer-events: none;
+      will-change: transform, opacity;
+      animation: flowerBurst var(--dur, 1.4s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes flowerBurst {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+      }
+      65% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.15) rotate(var(--rot));
+      }
+    }
+
+    /* Progress Bar Target */
+    .target-box {
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--card-border);
+    }
+
+    .target-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 10px;
+      background: var(--progress-bg);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #FF759F, #FFB703, #8E54E9);
+      transition: width 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s ease;
+    }
+
+    .progress-fill.half-reached {
+      background: linear-gradient(90deg, #F2A341, #FFD166, #FF759F);
+      box-shadow: 0 0 12px rgba(242, 163, 65, 0.55);
+    }
+
+    .progress-fill.full-reached {
+      background: linear-gradient(90deg, #5EA683, #80ED99, #FFD166);
+      box-shadow: 0 0 14px rgba(94, 166, 131, 0.65);
+    }
+
+    /* Tombol Kontrol Utama (+ dan -) */
+    .main-controls {
+      display: grid;
+      grid-template-columns: 1fr 1.45fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .btn-action {
+      border: none;
+      border-radius: 17px;
+      padding: 13px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #FFFDFB;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 6px 15px -5px rgba(87, 39, 66, 0.25);
+      transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-action:active {
+      transform: scale(0.93);
+    }
+
+    .btn-minus {
+      background: var(--btn-minus);
+    }
+    .btn-minus:hover {
+      background: var(--btn-minus-hover);
+    }
+
+    .btn-plus {
+      background: linear-gradient(135deg, #FF6B98, #F2648D);
+    }
+    .btn-plus:hover {
+      background: linear-gradient(135deg, #F55887, #E04E78);
+    }
+
+    /* Kartu Pengaturan Langkah & Target */
+    .settings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .setting-card {
+      background: rgba(255, 242, 246, 0.85);
+      border: 1.5px solid var(--card-border);
+      border-radius: 16px;
+      padding: 10px;
+    }
+
+    .setting-label {
+      display: block;
+      font-size: 0.71rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .step-pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+
+    .step-pill {
+      border: 1.5px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-primary);
+      border-radius: 9px;
+      padding: 6px 0;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .step-pill:hover {
+      transform: translateY(-1px);
+    }
+
+    .step-pill:active {
+      transform: scale(0.95);
+    }
+
+    .step-pill.active {
+      background: var(--btn-step-active);
+      border-color: var(--btn-step-active);
+      color: #FFFDFB;
+      box-shadow: 0 3px 8px -2px rgba(242, 163, 65, 0.45);
+      transform: translateY(-1px);
+    }
+
+    .input-mini {
+      width: 100%;
+      border: 1.5px solid var(--card-border);
+      background: var(--card-bg);
+      color: var(--text-primary);
+      border-radius: 9px;
+      padding: 6px 9px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      outline: none;
+    }
+
+    .input-mini:focus {
+      border-color: var(--btn-plus);
+    }
+
+    /* Footer & Tombol Reset */
+    .footer-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .shortcut-hint {
+      font-size: 0.69rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .btn-reset {
+      border: none;
+      background: var(--btn-reset);
+      color: #FFFDFB;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: transform 0.16s ease, background-color 0.2s ease;
+    }
+
+    .btn-reset:hover {
+      background: var(--btn-reset-hover);
+      transform: translateY(-1.5px);
+    }
+
+    .btn-reset:active {
+      transform: scale(0.94);
+    }
+
+    /* Penyesuaian Responsif Khusus Layar HP (<= 480px) */
+    @media (max-width: 480px) {
+      body {
+        padding: 14px;
+      }
+
+      .card {
+        max-width: 100%;
+        padding: 20px 18px;
+        border-radius: 26px;
+      }
+
+      .icon-btn {
+        width: 36px;
+        height: 36px;
+      }
+
+      .counter-value {
+        font-size: clamp(3.6rem, 16vw, 4.35rem);
+      }
+
+      .btn-action {
+        padding: 15px;
+        font-size: 1.85rem;
+      }
+
+      .step-pill {
+        padding: 8px 0;
+        font-size: 0.88rem;
+      }
+
+      .input-mini {
+        padding: 8px 10px;
+        font-size: 0.86rem;
+      }
+
+      .btn-reset {
+        padding: 9px 16px;
+        font-size: 0.82rem;
+      }
+
+      .shortcut-hint {
+        display: none;
+      }
+
+      .footer-bar {
+        justify-content: flex-end;
+      }
+
+      .bg-blossom {
+        opacity: 0.28;
+      }
+    }
+
+    /* Efek Pendaran Kartu saat Selebrasi */
+    @keyframes cardHalfGlow {
+      0%   { box-shadow: var(--shadow-card); }
+      40%  { box-shadow: 0 0 0 8px rgba(242, 163, 65, 0.35), var(--shadow-card); }
+      100% { box-shadow: var(--shadow-card); }
+    }
+
+    @keyframes cardFullParty {
+      0%   { transform: scale(1); box-shadow: var(--shadow-card); }
+      25%  { transform: scale(1.025); box-shadow: 0 0 0 12px rgba(255, 209, 102, 0.45), var(--shadow-card); }
+      55%  { transform: scale(0.99); box-shadow: 0 0 0 18px var(--accent-glow), var(--shadow-card); }
+      100% { transform: scale(1); box-shadow: var(--shadow-card); }
+    }
+
+    .card.celebrate-half { animation: cardHalfGlow 0.9s ease; }
+    .card.celebrate-full { animation: cardFullParty 1.1s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+    /* Modal Konfirmasi Reset */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(54, 24, 41, 0.52);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 100;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 340px;
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 26px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: var(--shadow-card);
+      animation: cheerUp 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .modal-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .modal-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.45;
+    }
+
+    .modal-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-modal {
+      padding: 11px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border: 1.5px solid var(--card-border);
+      transition: transform 0.15s ease;
+    }
+
+    .btn-modal:active {
+      transform: scale(0.95);
+    }
+
+    .btn-cancel {
+      background: var(--surface-soft);
+      color: var(--text-primary);
+    }
+
+    .btn-confirm-reset {
+      background: var(--btn-plus);
+      border-color: var(--btn-plus);
+      color: #FFFDFB;
+    }
+  </style>
+</head>
+<body>
+  <!-- Bunga Latar Belakang Lembut Warna-warni -->
+  <div class="bg-garden" aria-hidden="true">
+    <!-- Sakura Pink -->
+    <svg class="bg-blossom b1" viewBox="0 0 80 80" fill="none">
+      <g transform="translate(40,40)">
+        <ellipse cx="0" cy="-16" rx="8" ry="13" fill="#FF8FAB"/>
+        <ellipse cx="15" cy="-5" rx="8" ry="13" transform="rotate(72 15 -5)" fill="#FF8FAB"/>
+        <ellipse cx="9" cy="13" rx="8" ry="13" transform="rotate(144 9 13)" fill="#FF8FAB"/>
+        <ellipse cx="-9" cy="13" rx="8" ry="13" transform="rotate(216 -9 13)" fill="#FF8FAB"/>
+        <ellipse cx="-15" cy="-5" rx="8" ry="13" transform="rotate(288 -15 -5)" fill="#FF8FAB"/>
+        <circle cx="0" cy="0" r="6.5" fill="#FFD166"/>
+      </g>
+    </svg>
+    <!-- Buttercup Yellow Daisy -->
+    <svg class="bg-blossom b2" viewBox="0 0 80 80" fill="none">
+      <g transform="translate(40,40)">
+        <ellipse cx="0" cy="-16" rx="7.5" ry="13" fill="#FFD166"/>
+        <ellipse cx="14" cy="-8" rx="7.5" ry="13" transform="rotate(60 14 -8)" fill="#FFD166"/>
+        <ellipse cx="14" cy="8" rx="7.5" ry="13" transform="rotate(120 14 8)" fill="#FFD166"/>
+        <ellipse cx="0" cy="16" rx="7.5" ry="13" transform="rotate(180 0 16)" fill="#FFD166"/>
+        <ellipse cx="-14" cy="8" rx="7.5" ry="13" transform="rotate(240 -14 8)" fill="#FFD166"/>
+        <ellipse cx="-14" cy="-8" rx="7.5" ry="13" transform="rotate(300 -14 -8)" fill="#FFD166"/>
+        <circle cx="0" cy="0" r="7" fill="#F28C38"/>
+      </g>
+    </svg>
+    <!-- Sky Bluebell -->
+    <svg class="bg-blossom b3" viewBox="0 0 80 80" fill="none">
+      <g transform="translate(40,40)">
+        <ellipse cx="0" cy="-15" rx="8" ry="12" fill="#72BDFF"/>
+        <ellipse cx="15" cy="-4" rx="8" ry="12" transform="rotate(72 15 -4)" fill="#72BDFF"/>
+        <ellipse cx="9" cy="12" rx="8" ry="12" transform="rotate(144 9 12)" fill="#72BDFF"/>
+        <ellipse cx="-9" cy="12" rx="8" ry="12" transform="rotate(216 -9 12)" fill="#72BDFF"/>
+        <ellipse cx="-15" cy="-4" rx="8" ry="12" transform="rotate(288 -15 -4)" fill="#72BDFF"/>
+        <circle cx="0" cy="0" r="6" fill="#FFE66D"/>
+      </g>
+    </svg>
+    <!-- Lavender Lilac -->
+    <svg class="bg-blossom b4" viewBox="0 0 80 80" fill="none">
+      <g transform="translate(40,40)">
+        <ellipse cx="0" cy="-16" rx="8" ry="13" fill="#B892FF"/>
+        <ellipse cx="15" cy="-5" rx="8" ry="13" transform="rotate(72 15 -5)" fill="#B892FF"/>
+        <ellipse cx="9" cy="13" rx="8" ry="13" transform="rotate(144 9 13)" fill="#B892FF"/>
+        <ellipse cx="-9" cy="13" rx="8" ry="13" transform="rotate(216 -9 13)" fill="#B892FF"/>
+        <ellipse cx="-15" cy="-5" rx="8" ry="13" transform="rotate(288 -15 -5)" fill="#B892FF"/>
+        <circle cx="0" cy="0" r="6.5" fill="#FF9EBB"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Layer Partikel Perayaan -->
+  <div class="fx-layer" id="fxLayer"></div>
+
+  <main class="card" id="mainCard">
+    <!-- Buket Bunga Kanan Atas: Sakura Pink + Buttercup Kuning + Lavender + Daun Sage -->
+    <div class="corner-decor corner-top-right" aria-hidden="true">
+      <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Dedaunan Sage -->
+        <path d="M90 36C72 28 56 38 54 54C70 56 84 48 90 36Z" fill="#68B08B" opacity="0.9"/>
+        <path d="M96 72C108 58 106 40 92 34C84 48 86 62 96 72Z" fill="#5EA683" opacity="0.82"/>
+        <path d="M62 24C52 14 38 16 34 28C46 32 56 30 62 24Z" fill="#82C4A1" opacity="0.85"/>
+        <!-- Bunga Utama: Pink Sakura -->
+        <g transform="translate(92, 36)">
+          <ellipse cx="0" cy="-17" rx="9" ry="14" fill="#FF759F"/>
+          <ellipse cx="16" cy="-5" rx="9" ry="14" transform="rotate(72 16 -5)" fill="#FF759F"/>
+          <ellipse cx="10" cy="14" rx="9" ry="14" transform="rotate(144 10 14)" fill="#FF759F"/>
+          <ellipse cx="-10" cy="14" rx="9" ry="14" transform="rotate(216 -10 14)" fill="#FF759F"/>
+          <ellipse cx="-16" cy="-5" rx="9" ry="14" transform="rotate(288 -16 -5)" fill="#FF759F"/>
+          <circle cx="0" cy="0" r="7.5" fill="#FFD166"/>
+        </g>
+        <!-- Bunga Pendamping 1: Buttercup Kuning -->
+        <g transform="translate(60, 22)">
+          <ellipse cx="0" cy="-10" rx="5.5" ry="8.5" fill="#FFD166"/>
+          <ellipse cx="9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(72 9.5 -3)" fill="#FFD166"/>
+          <ellipse cx="6" cy="8" rx="5.5" ry="8.5" transform="rotate(144 6 8)" fill="#FFD166"/>
+          <ellipse cx="-6" cy="8" rx="5.5" ry="8.5" transform="rotate(216 -6 8)" fill="#FFD166"/>
+          <ellipse cx="-9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(288 -9.5 -3)" fill="#FFD166"/>
+          <circle cx="0" cy="0" r="4.5" fill="#F28C38"/>
+        </g>
+        <!-- Bunga Pendamping 2: Lavender Lilac -->
+        <g transform="translate(106, 68)">
+          <ellipse cx="0" cy="-9" rx="5" ry="8" fill="#B892FF"/>
+          <ellipse cx="8.5" cy="-3" rx="5" ry="8" transform="rotate(72 8.5 -3)" fill="#B892FF"/>
+          <ellipse cx="5.5" cy="7.5" rx="5" ry="8" transform="rotate(144 5.5 7.5)" fill="#B892FF"/>
+          <ellipse cx="-5.5" cy="7.5" rx="5" ry="8" transform="rotate(216 -5.5 7.5)" fill="#B892FF"/>
+          <ellipse cx="-8.5" cy="-3" rx="5" ry="8" transform="rotate(288 -8.5 -3)" fill="#B892FF"/>
+          <circle cx="0" cy="0" r="4" fill="#FF9EBB"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Bunga Kecil Kiri Atas: Sky Bluebell & Daun -->
+    <div class="corner-decor corner-top-left" aria-hidden="true">
+      <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28 28C42 22 52 30 52 42C40 44 32 38 28 28Z" fill="#68B08B" opacity="0.82"/>
+        <g transform="translate(26, 26)">
+          <ellipse cx="0" cy="-11" rx="6" ry="9.5" fill="#72BDFF"/>
+          <ellipse cx="10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(72 10.5 -3.5)" fill="#72BDFF"/>
+          <ellipse cx="6.5" cy="9" rx="6" ry="9.5" transform="rotate(144 6.5 9)" fill="#72BDFF"/>
+          <ellipse cx="-6.5" cy="9" rx="6" ry="9.5" transform="rotate(216 -6.5 9)" fill="#72BDFF"/>
+          <ellipse cx="-10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(288 -10.5 -3.5)" fill="#72BDFF"/>
+          <circle cx="0" cy="0" r="4.8" fill="#FFD166"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Buket Bunga Kiri Bawah: Lavender Ungu + Peach Coral + Sky Bluebell + Daun Sage -->
+    <div class="corner-decor corner-bottom-left" aria-hidden="true">
+      <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Dedaunan Sage -->
+        <path d="M38 92C56 100 72 90 74 74C58 72 44 80 38 92Z" fill="#68B08B" opacity="0.9"/>
+        <path d="M32 56C20 70 22 88 36 94C44 80 42 66 32 56Z" fill="#5EA683" opacity="0.82"/>
+        <!-- Bunga Utama: Lavender Lilac -->
+        <g transform="translate(36, 92)">
+          <ellipse cx="0" cy="-17" rx="9" ry="14" fill="#B892FF"/>
+          <ellipse cx="16" cy="-5" rx="9" ry="14" transform="rotate(72 16 -5)" fill="#B892FF"/>
+          <ellipse cx="10" cy="14" rx="9" ry="14" transform="rotate(144 10 14)" fill="#B892FF"/>
+          <ellipse cx="-10" cy="14" rx="9" ry="14" transform="rotate(216 -10 14)" fill="#B892FF"/>
+          <ellipse cx="-16" cy="-5" rx="9" ry="14" transform="rotate(288 -16 -5)" fill="#B892FF"/>
+          <circle cx="0" cy="0" r="7.5" fill="#FFD166"/>
+        </g>
+        <!-- Bunga Pendamping 1: Peach Coral -->
+        <g transform="translate(68, 106)">
+          <ellipse cx="0" cy="-10" rx="5.5" ry="8.5" fill="#FF9770"/>
+          <ellipse cx="9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(72 9.5 -3)" fill="#FF9770"/>
+          <ellipse cx="6" cy="8" rx="5.5" ry="8.5" transform="rotate(144 6 8)" fill="#FF9770"/>
+          <ellipse cx="-6" cy="8" rx="5.5" ry="8.5" transform="rotate(216 -6 8)" fill="#FF9770"/>
+          <ellipse cx="-9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(288 -9.5 -3)" fill="#FF9770"/>
+          <circle cx="0" cy="0" r="4.5" fill="#FFF3B0"/>
+        </g>
+        <!-- Bunga Pendamping 2: Sky Bluebell -->
+        <g transform="translate(22, 60)">
+          <ellipse cx="0" cy="-9" rx="5" ry="8" fill="#72BDFF"/>
+          <ellipse cx="8.5" cy="-3" rx="5" ry="8" transform="rotate(72 8.5 -3)" fill="#72BDFF"/>
+          <ellipse cx="5.5" cy="7.5" rx="5" ry="8" transform="rotate(144 5.5 7.5)" fill="#72BDFF"/>
+          <ellipse cx="-5.5" cy="7.5" rx="5" ry="8" transform="rotate(216 -5.5 7.5)" fill="#72BDFF"/>
+          <ellipse cx="-8.5" cy="-3" rx="5" ry="8" transform="rotate(288 -8.5 -3)" fill="#72BDFF"/>
+          <circle cx="0" cy="0" r="4" fill="#FFD166"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- Bunga Kecil Kanan Bawah: Buttercup Kuning & Daun -->
+    <div class="corner-decor corner-bottom-right" aria-hidden="true">
+      <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M62 62C48 68 38 60 38 48C50 46 58 52 62 62Z" fill="#68B08B" opacity="0.82"/>
+        <g transform="translate(64, 64)">
+          <ellipse cx="0" cy="-11" rx="6" ry="9.5" fill="#FFD166"/>
+          <ellipse cx="10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(72 10.5 -3.5)" fill="#FFD166"/>
+          <ellipse cx="6.5" cy="9" rx="6" ry="9.5" transform="rotate(144 6.5 9)" fill="#FFD166"/>
+          <ellipse cx="-6.5" cy="9" rx="6" ry="9.5" transform="rotate(216 -6.5 9)" fill="#FFD166"/>
+          <ellipse cx="-10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(288 -10.5 -3.5)" fill="#FFD166"/>
+          <circle cx="0" cy="0" r="4.8" fill="#FF759F"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-top-bar">
+          <div class="badge-save">
+            <span class="dot-live"></span>
+            <span>Tersimpan Otomatis</span>
+          </div>
+          <div class="top-actions">
+            <button type="button" class="icon-btn" id="soundToggle" title="Suara Aktif/Nonaktif" aria-label="Suara">🔊</button>
+          </div>
+        </div>
+
+        <div class="title-area">
+          <div class="title-edit-wrapper">
+            <input
+              type="text"
+              id="counterTitleInput"
+              class="counter-title-input"
+              value="My Project Counter"
+              maxlength="36"
+              aria-label="Nama Counter"
+              title="Klik untuk mengganti nama counter"
+            />
+            <button type="button" class="edit-pencil-btn" id="editTitleBtn" title="Ubah Nama Counter" aria-label="Edit Nama">✏️</button>
+          </div>
+          <p class="brand-subtitle">by <em>flowering</em> with love, to count your project 🥰❤️</p>
+        </div>
+      </header>
+
+      <!-- Display Angka & Target -->
+      <section class="counter-stage" id="counterStage">
+        <div class="milestone-banner" id="milestoneBanner">✨ Setengah Jalan (50%)!</div>
+        <div>
+          <span class="counter-value" id="counterDisplay">0</span>
+        </div>
+
+        <div class="target-box" id="targetBox">
+          <div class="target-header">
+            <span id="targetStatusText">Target: 50</span>
+            <span id="targetPercentText">0%</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tombol Utama Kurang (-) & Tambah (+) -->
+      <section class="main-controls">
+        <button type="button" class="btn-action btn-minus" id="btnMinus" aria-label="Kurangi Hitungan">−</button>
+        <button type="button" class="btn-action btn-plus" id="btnPlus" aria-label="Tambah Hitungan">+</button>
+      </section>
+
+      <!-- Pengaturan Langkah (+1, +5, +10) & Target Hitungan -->
+      <section class="settings-grid">
+        <div class="setting-card">
+          <span class="setting-label">Langkah Hitungan</span>
+          <div class="step-pills" id="stepPills" role="group" aria-label="Pilih Langkah Hitungan">
+            <button type="button" class="step-pill active" data-step="1">+1</button>
+            <button type="button" class="step-pill" data-step="5">+5</button>
+            <button type="button" class="step-pill" data-step="10">+10</button>
+          </div>
+        </div>
+
+        <div class="setting-card">
+          <label class="setting-label" for="targetInput">Target Hitungan</label>
+          <input class="input-mini" type="number" id="targetInput" min="1" placeholder="Contoh: 50" />
+        </div>
+      </section>
+
+      <!-- Footer Pintasan & Tombol Reset -->
+      <footer class="footer-bar">
+        <span class="shortcut-hint">Spasi / ↑ : + &nbsp;|&nbsp; ↓ : − &nbsp;|&nbsp; R : Reset</span>
+        <button type="button" class="btn-reset" id="btnReset">↺ Reset</button>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Modal Konfirmasi Reset -->
+  <div class="modal-backdrop" id="resetModal">
+    <div class="modal-box">
+      <h2 class="modal-title">Reset Hitungan?</h2>
+      <p class="modal-desc">Angka hitungan saat ini akan dikembalikan ke <strong>0</strong>. Apakah Anda yakin ingin melanjutkan?</p>
+      <div class="modal-actions">
+        <button type="button" class="btn-modal btn-cancel" id="cancelReset">Batal</button>
+        <button type="button" class="btn-modal btn-confirm-reset" id="confirmReset">Ya, Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'aesthetic_cheerful_counter_v2';
+    const ALLOWED_STEPS = [1, 5, 10];
+
+    let state = {
+      title: 'My Project Counter',
+      count: 0,
+      step: 1,
+      target: 50,
+      sound: true,
+      theme: 'flower' // 'flower' | 'heart' | 'ribbon'
+    };
+
+    // Muat state tersimpan dari localStorage saat halaman dibuka/di-refresh
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+      if (saved && typeof saved === 'object') {
+        state = { ...state, ...saved };
+      }
+    } catch (e) {
+      console.error('Gagal membaca penyimpanan lokal:', e);
+    }
+
+    // Validasi nilai state agar selalu aman dan sesuai aturan
+    state.count = Number.isFinite(Number(state.count)) ? Math.max(0, Number(state.count)) : 0;
+    state.step = ALLOWED_STEPS.includes(Number(state.step)) ? Number(state.step) : 1;
+    state.target = Number.isFinite(Number(state.target)) && Number(state.target) > 0 ? Number(state.target) : 50;
+    if (!['flower', 'heart', 'ribbon'].includes(state.theme)) {
+      state.theme = 'flower';
+    }
+
+    // Referensi Elemen DOM
+    const mainCard = document.getElementById('mainCard');
+    const decorTopRight = document.getElementById('decorTopRight');
+    const decorBottomLeft = document.getElementById('decorBottomLeft');
+    const counterTitleInput = document.getElementById('counterTitleInput');
+    const editTitleBtn = document.getElementById('editTitleBtn');
+    const themeBtns = document.querySelectorAll('.theme-btn');
+    const counterStage = document.getElementById('counterStage');
+    const counterDisplay = document.getElementById('counterDisplay');
+    const milestoneBanner = document.getElementById('milestoneBanner');
+    const targetStatusText = document.getElementById('targetStatusText');
+    const targetPercentText = document.getElementById('targetPercentText');
+    const progressFill = document.getElementById('progressFill');
+    const targetInput = document.getElementById('targetInput');
+    const stepPillsContainer = document.getElementById('stepPills');
+    const stepPills = document.querySelectorAll('.step-pill');
+    const btnPlus = document.getElementById('btnPlus');
+    const btnMinus = document.getElementById('btnMinus');
+    const btnReset = document.getElementById('btnReset');
+    const soundToggle = document.getElementById('soundToggle');
+    const resetModal = document.getElementById('resetModal');
+    const cancelReset = document.getElementById('cancelReset');
+    const confirmReset = document.getElementById('confirmReset');
+    const fxLayer = document.getElementById('fxLayer');
+
+    // ==========================================
+    // KONFIGURASI EFEK PARTIKEL TAMAN BUNGA WARNA-WARNI
+    // ==========================================
+    const FLOWER_GARDEN_FX = {
+      stepFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻', '💠'],
+      halfFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻', '✨'],
+      fullFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻', '💐', '🏵️', '✨'],
+      colors: ['#FF759F', '#FFD166', '#B892FF', '#72BDFF', '#FF9770', '#68B08B']
+    };
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (e) {
+        console.error('Gagal menyimpan ke penyimpanan lokal:', e);
+      }
+    }
+
+    // ==========================================
+    // WEB AUDIO API: EFEK SUARA BERBEDA & CERIA
+    // ==========================================
+    let audioCtx = null;
+    function getAudioCtx() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playTone(freq, type, startTime, duration, volume = 0.16, slideTo = null) {
+      if (!state.sound) return;
+      const ctx = getAudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, startTime);
+      if (slideTo) {
+        osc.frequency.exponentialRampToValueAtTime(slideTo, startTime + duration);
+      }
+
+      gain.gain.setValueAtTime(0.001, startTime);
+      gain.gain.linearRampToValueAtTime(volume, startTime + 0.015);
+      gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(startTime);
+      osc.stop(startTime + duration + 0.02);
+    }
+
+    // 1. Suara Tambah (+): Nada pop naik cerah + kilau nada tinggi
+    function soundPlus() {
+      if (!state.sound) return;
+      const now = getAudioCtx().currentTime;
+      playTone(523.25, 'sine', now, 0.14, 0.18, 783.99);       // C5 -> G5
+      playTone(1046.5, 'triangle', now + 0.04, 0.11, 0.09);    // Kilau C6
+    }
+
+    // 2. Suara Kurang (-): Nada boop turun lembut
+    function soundMinus() {
+      if (!state.sound) return;
+      const now = getAudioCtx().currentTime;
+      playTone(440.0, 'triangle', now, 0.16, 0.18, 277.18);    // A4 -> C#4
+    }
+
+    // 3. Suara Reset: Sapuan turun lembut
+    function soundReset() {
+      if (!state.sound) return;
+      const now = getAudioCtx().currentTime;
+      playTone(587.33, 'sine', now, 0.09, 0.14, 392.0);
+      playTone(392.0, 'sine', now + 0.08, 0.16, 0.14, 261.63);
+    }
+
+    // 4. Suara Pilih Langkah (+1 / +5 / +10): Klik nada lembut
+    function soundStepSelect(stepVal) {
+      if (!state.sound) return;
+      const now = getAudioCtx().currentTime;
+      const baseFreq = stepVal === 10 ? 659.25 : stepVal === 5 ? 587.33 : 523.25;
+      playTone(baseFreq, 'sine', now, 0.09, 0.12, baseFreq * 1.15);
+    }
+
+    // 5. Suara Milestone 50%: Melodi 3 nada ceria
+    function soundHalfMilestone() {
+      if (!state.sound) return;
+      const now = getAudioCtx().currentTime;
+      const notes = [523.25, 659.25, 783.99]; // C5 - E5 - G5
+      notes.forEach((n, i) => {
+        playTone(n, 'triangle', now + i * 0.09, 0.24, 0.18);
+        playTone(n * 2, 'sine', now + i * 0.09, 0.2, 0.06);
+      });
+    }
+
+    // 6. Suara Milestone 100%: Fanfare harmonis meriah
+    function soundFullMilestone() {
+      if (!state.sound) return;
+      const now = getAudioCtx().currentTime;
+      const fanfare = [
+        { f: 523.25, t: 0.00, d: 0.16 },  // C5
+        { f: 659.25, t: 0.08, d: 0.16 },  // E5
+        { f: 783.99, t: 0.16, d: 0.16 },  // G5
+        { f: 1046.50, t: 0.25, d: 0.45 }, // C6
+        { f: 1318.51, t: 0.28, d: 0.45 }, // E6
+        { f: 1567.98, t: 0.31, d: 0.50 }  // G6
+      ];
+      fanfare.forEach(item => {
+        playTone(item.f, 'triangle', now + item.t, item.d, 0.17);
+        playTone(item.f, 'sine', now + item.t, item.d, 0.10);
+      });
+    }
+
+    // ==========================================
+    // EFEK PARTIKEL KELOPAK BUNGA WARNA-WARNI (SAAT +, 50%, & 100%)
+    // ==========================================
+    function spawnFlowerParticles(level) {
+      const rect = counterStage.getBoundingClientRect();
+      const originX = rect.left + rect.width / 2;
+      const originY = rect.top + rect.height / 2;
+
+      const isFull = level === 'full';
+      const isHalf = level === 'half';
+      const count = isFull ? 64 : isHalf ? 28 : 8;
+      const shapes = isFull
+        ? FLOWER_GARDEN_FX.fullFlowers
+        : isHalf
+          ? FLOWER_GARDEN_FX.halfFlowers
+          : FLOWER_GARDEN_FX.stepFlowers;
+
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('span');
+        el.className = 'confetti-piece';
+
+        const shape = shapes[Math.floor(Math.random() * shapes.length)];
+        const color = FLOWER_GARDEN_FX.colors[Math.floor(Math.random() * FLOWER_GARDEN_FX.colors.length)];
+        el.textContent = shape;
+        el.style.color = color;
+        el.style.fontSize = (isFull ? (15 + Math.random() * 14) : isHalf ? (13 + Math.random() * 10) : (12 + Math.random() * 7)) + 'px';
+
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+        const distance = isFull
+          ? (115 + Math.random() * 215)
+          : isHalf
+            ? (70 + Math.random() * 115)
+            : (42 + Math.random() * 68);
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance - (isFull ? 42 : isHalf ? 24 : 18);
+        const rot = (Math.random() - 0.5) * 720;
+
+        el.style.left = originX + 'px';
+        el.style.top = originY + 'px';
+        el.style.setProperty('--tx', `${tx}px`);
+        el.style.setProperty('--ty', `${ty}px`);
+        el.style.setProperty('--rot', `${rot}deg`);
+        el.style.setProperty('--dur', (isFull ? (1.25 + Math.random() * 0.7) : isHalf ? (0.9 + Math.random() * 0.4) : (0.65 + Math.random() * 0.25)) + 's');
+
+        fxLayer.appendChild(el);
+        setTimeout(() => el.remove(), 2100);
+      }
+    }
+
+    function spawnDeltaBubble(delta) {
+      const bubble = document.createElement('span');
+      bubble.className = 'delta-pop';
+      bubble.textContent = delta > 0 ? `+${delta}` : `${delta}`;
+      bubble.style.color = delta > 0 ? 'var(--btn-plus)' : 'var(--btn-minus)';
+      bubble.style.left = (45 + Math.random() * 10) + '%';
+      bubble.style.top = '38%';
+      counterStage.appendChild(bubble);
+      setTimeout(() => bubble.remove(), 720);
+    }
+
+    function triggerClassAnim(el, className) {
+      el.classList.remove('anim-up', 'anim-down', 'anim-reset', 'anim-half', 'anim-full', 'celebrate-half', 'celebrate-full', 'bloom');
+      void el.offsetWidth;
+      el.classList.add(className);
+    }
+
+    // ==========================================
+    // RENDER UI & LOGIKA MILESTONE
+    // ==========================================
+    function render(actionType = null, prevCount = state.count) {
+      if (document.activeElement !== counterTitleInput) {
+        counterTitleInput.value = state.title || 'My Project Counter';
+      }
+
+      counterDisplay.textContent = state.count.toLocaleString('id-ID');
+
+      // Ikon Suara
+      soundToggle.textContent = state.sound ? '🔊' : '🔇';
+
+      // Pilihan Langkah (+1, +5, +10)
+      stepPills.forEach(btn => {
+        const btnStep = Number(btn.dataset.step);
+        const isActive = btnStep === Number(state.step);
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
+
+      // Target & Progress Bar
+      const target = Number(state.target);
+      if (document.activeElement !== targetInput) {
+        targetInput.value = target > 0 ? target : '';
+      }
+
+      let pct = 0;
+      let prevPct = 0;
+      if (target > 0) {
+        pct = Math.max(0, Math.round((state.count / target) * 100));
+        prevPct = Math.max(0, Math.round((prevCount / target) * 100));
+        targetStatusText.textContent = `Target: ${target.toLocaleString('id-ID')}`;
+        targetPercentText.textContent = `${pct}%`;
+        progressFill.style.width = `${Math.min(100, pct)}%`;
+      } else {
+        targetStatusText.textContent = 'Target: Belum diatur';
+        targetPercentText.textContent = '—';
+        progressFill.style.width = '0%';
+      }
+
+      progressFill.classList.remove('half-reached', 'full-reached');
+      milestoneBanner.classList.remove('show', 'half', 'full');
+
+      if (target > 0 && pct >= 100) {
+        progressFill.classList.add('full-reached');
+        milestoneBanner.textContent = '💐 Target 100% Tercapai! Mekar Sempurna!';
+        milestoneBanner.classList.add('show', 'full');
+      } else if (target > 0 && pct >= 50) {
+        progressFill.classList.add('half-reached');
+        milestoneBanner.textContent = '🌼 Mantap! Sudah 50% Mekar!';
+        milestoneBanner.classList.add('show', 'half');
+      }
+
+      // Cek Milestone 50% & 100% saat hitungan naik
+      const crossed100 = actionType === 'plus' && target > 0 && prevPct < 100 && pct >= 100;
+      const crossed50 = actionType === 'plus' && target > 0 && prevPct < 50 && pct >= 50 && pct < 100;
+
+      if (crossed100) {
+        triggerClassAnim(counterDisplay, 'anim-full');
+        triggerClassAnim(mainCard, 'celebrate-full');
+        mainCard.classList.add('bloom');
+        soundFullMilestone();
+        spawnFlowerParticles('full');
+      } else if (crossed50) {
+        triggerClassAnim(counterDisplay, 'anim-half');
+        triggerClassAnim(mainCard, 'celebrate-half');
+        mainCard.classList.add('bloom');
+        soundHalfMilestone();
+        spawnFlowerParticles('half');
+      } else if (actionType === 'plus') {
+        triggerClassAnim(counterDisplay, 'anim-up');
+        mainCard.classList.add('bloom');
+        setTimeout(() => mainCard.classList.remove('bloom'), 450);
+        soundPlus();
+        spawnFlowerParticles('step');
+      } else if (actionType === 'minus') {
+        triggerClassAnim(counterDisplay, 'anim-down');
+        soundMinus();
+      } else if (actionType === 'reset') {
+        triggerClassAnim(counterDisplay, 'anim-reset');
+        soundReset();
+      }
+
+      saveState();
+    }
+
+    function increment() {
+      const stepValue = ALLOWED_STEPS.includes(Number(state.step)) ? Number(state.step) : 1;
+      const prev = state.count;
+      state.count += stepValue;
+      spawnDeltaBubble(stepValue);
+      render('plus', prev);
+    }
+
+    function decrement() {
+      const stepValue = ALLOWED_STEPS.includes(Number(state.step)) ? Number(state.step) : 1;
+      const prev = state.count;
+      state.count = Math.max(0, state.count - stepValue);
+      if (prev !== state.count) {
+        spawnDeltaBubble(-(prev - state.count));
+      }
+      render('minus', prev);
+    }
+
+    // Event Listeners Tombol Utama
+    btnPlus.addEventListener('click', increment);
+    btnMinus.addEventListener('click', decrement);
+
+    // Event Delegation & Direct Listener untuk Pilihan Langkah (+1, +5, dan +10)
+    function selectStep(newStep) {
+      const parsedStep = Number(newStep);
+      if (!ALLOWED_STEPS.includes(parsedStep)) return;
+      state.step = parsedStep;
+      soundStepSelect(parsedStep);
+      render();
+    }
+
+    stepPillsContainer.addEventListener('click', (e) => {
+      const pill = e.target.closest('.step-pill');
+      if (!pill) return;
+      selectStep(pill.dataset.step);
+    });
+
+    targetInput.addEventListener('input', (e) => {
+      const val = parseInt(e.target.value, 10);
+      state.target = val > 0 ? val : 0;
+      render();
+    });
+
+    soundToggle.addEventListener('click', () => {
+      state.sound = !state.sound;
+      if (state.sound) soundPlus();
+      render();
+    });
+
+    // Rename Judul Counter
+    counterTitleInput.addEventListener('input', (e) => {
+      state.title = e.target.value;
+      saveState();
+    });
+
+    counterTitleInput.addEventListener('blur', () => {
+      if (!state.title.trim()) {
+        state.title = 'My Project Counter';
+        counterTitleInput.value = state.title;
+        saveState();
+      }
+    });
+
+    counterTitleInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        counterTitleInput.blur();
+      }
+    });
+
+    editTitleBtn.addEventListener('click', () => {
+      counterTitleInput.focus();
+      counterTitleInput.select();
+    });
+
+    // Modal Konfirmasi Reset
+    btnReset.addEventListener('click', () => {
+      resetModal.classList.add('open');
+    });
+
+    cancelReset.addEventListener('click', () => {
+      resetModal.classList.remove('open');
+    });
+
+    confirmReset.addEventListener('click', () => {
+      const prev = state.count;
+      state.count = 0;
+      resetModal.classList.remove('open');
+      render('reset', prev);
+    });
+
+    resetModal.addEventListener('click', (e) => {
+      if (e.target === resetModal) resetModal.classList.remove('open');
+    });
+
+    // Pintasan Keyboard
+    document.addEventListener('keydown', (e) => {
+      if (document.activeElement === targetInput || document.activeElement === counterTitleInput) return;
+      if (resetModal.classList.contains('open')) {
+        if (e.key === 'Escape') resetModal.classList.remove('open');
+        if (e.key === 'Enter') confirmReset.click();
+        return;
+      }
+
+      if (e.code === 'Space' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        increment();
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        decrement();
+      } else if (e.key.toLowerCase() === 'r') {
+        resetModal.classList.add('open');
+      }
+    });
+
+    // Jalankan saat halaman dimuat
+    render();
+  </script>
+</body>
+</html>
