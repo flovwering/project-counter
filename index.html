@@ -1104,7 +1104,7 @@
     // KONFIGURASI EFEK PARTIKEL TAMAN BUNGA WARNA-WARNI
     // ==========================================
     const FLOWER_GARDEN_FX = {
-      stepFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻', '💠'],
+      stepFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻'],
       halfFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻', '✨'],
       fullFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻', '💐', '🏵️', '✨'],
       colors: ['#FF759F', '#FFD166', '#B892FF', '#72BDFF', '#FF9770', '#68B08B']
@@ -1328,11 +1328,11 @@
 
       if (target > 0 && pct >= 100) {
         progressFill.classList.add('full-reached');
-        milestoneBanner.textContent = '💐 Target 100% Tercapai! Mekar Sempurna!';
+        milestoneBanner.textContent = '💐 Target 100% Tercapai! Selamat!';
         milestoneBanner.classList.add('show', 'full');
       } else if (target > 0 && pct >= 50) {
         progressFill.classList.add('half-reached');
-        milestoneBanner.textContent = '🌼 Mantap! Sudah 50% Mekar!';
+        milestoneBanner.textContent = '🌼 Mantap! Sudah setengah jalan! Semangat!';
         milestoneBanner.classList.add('show', 'half');
       }
 
