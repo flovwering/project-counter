@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Counter Project🌸</title>
+  <title>Counter Project</title>
   <!-- Ikon Tab Browser (Favicon) -->
   <link rel="icon" type="image/png" href="rajuthif.png" />
   <link rel="apple-touch-icon" href="rajuthif.png" />
@@ -13,47 +13,96 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     /* ==========================================
-       TEMA NUDE: IVORY CREAM + SOFT BEIGE + WARM NUDE + PALE ALMOND + TAUPE BROWN
+       TEMA BLUE: COOL CERULEAN + BABY BLUE EYES + MIDNIGHT BLUE + PLATINUM + LIGHT BLUE GREY
        Palet:
-       - #FBF8F3 Ivory Cream (Card, teks di atas tombol gelap)
-       - #D0BEAB Soft Beige (Border, gingham, progress awal)
-       - #A98E79 Warm Nude (Reset, progress 50%)
-       - #E8DDD0 Pale Almond (Background, stage, box)
-       - #7C6658 Taupe Brown (Teks, angka, tombol + dan CTA)
+       - #1C2B48 Midnight Blue (Teks, angka, tombol + dan CTA)
+       - #8EB1D1 Cool Cerulean (Reset, progress 50%)
+       - #A7C7E7 Baby Blue Eyes (Border, progress awal)
+       - #C4D8E5 Light Blue Grey (Background, stage, box)
+       - #E8ECEF Platinum (Card, teks di atas tombol gelap)
        ========================================== */
     :root {
-      /* Palet: Ivory Cream #FBF8F3, Soft Beige #D0BEAB, Warm Nude #A98E79,
-         Pale Almond #E8DDD0, Taupe Brown #7C6658 */
-      --bg-main: #E8DDD0;
-      --gingham-stripe: rgba(208, 190, 171, 0.50);
-      --card-bg: #FBF8F3;
-      --card-border: #D0BEAB;
-      --line-soft: #D0BEAB;
-      --text-primary: #7C6658;
-      --text-secondary: #7C6658;
-      --stage-bg: #E8DDD0;
-      --box-soft: #E8DDD0;
-      --num-color: #7C6658;
-      --num-shadow: rgba(124, 102, 88, 0.22);
-      --btn-plus: #7C6658;
-      --btn-plus-hover: #6A5548;
-      --btn-plus-border: #6A5548;
-      --btn-minus: #E8DDD0;
-      --btn-minus-hover: #D0BEAB;
-      --btn-step-active: #7C6658;
-      --btn-step-shadow: rgba(124, 102, 88, 0.34);
-      --btn-reset: #A98E79;
-      --btn-reset-hover: #977C68;
-      --btn-tea-bg: #7C6658;
-      --btn-tea-hover: #6A5548;
-      --btn-tea-shadow: rgba(124, 102, 88, 0.30);
-      --surface-soft: #E8DDD0;
-      --progress-bg: #FBF8F3;
-      --progress-fill: #D0BEAB;
-      --progress-half: #A98E79;
-      --progress-full: #7C6658;
-      --accent-glow: rgba(169, 142, 121, 0.45);
-      --shadow-card: 0 20px 45px -12px rgba(124, 102, 88, 0.28), 0 8px 20px -8px rgba(169, 142, 121, 0.32);
+      /* TEMA BIRU (default)
+         Palet: Cool Cerulean #8EB1D1, Baby Blue Eyes #A7C7E7, Midnight Blue #1C2B48,
+         Platinum #E8ECEF, Light Blue Grey #C4D8E5 */
+      --bg-main: #C4D8E5;
+      --gingham-stripe: rgba(142, 177, 209, 0.32);
+      --card-bg: #E8ECEF;
+      --card-border: #A7C7E7;
+      --line-soft: #A7C7E7;
+      --text-primary: #1C2B48;
+      --text-secondary: #1C2B48;
+      --on-dark: #E8ECEF;
+      --stage-bg: #C4D8E5;
+      --box-soft: #C4D8E5;
+      --num-color: #1C2B48;
+      --num-shadow: rgba(28, 43, 72, 0.22);
+      --btn-plus: #1C2B48;
+      --btn-plus-hover: #2B3F66;
+      --btn-plus-border: #131E35;
+      --btn-minus: #C4D8E5;
+      --btn-minus-hover: #A7C7E7;
+      --btn-step-active: #1C2B48;
+      --btn-step-shadow: rgba(28, 43, 72, 0.34);
+      --btn-shadow-soft: rgba(28, 43, 72, 0.28);
+      --btn-reset: #8EB1D1;
+      --btn-reset-hover: #7BA0C3;
+      --btn-tea-bg: #1C2B48;
+      --btn-tea-hover: #2B3F66;
+      --btn-tea-shadow: rgba(28, 43, 72, 0.30);
+      --surface-soft: #C4D8E5;
+      --progress-bg: #E8ECEF;
+      --progress-fill: #A7C7E7;
+      --progress-half: #8EB1D1;
+      --progress-full: #1C2B48;
+      --accent-glow: rgba(142, 177, 209, 0.50);
+      --dot-ring: rgba(28, 43, 72, 0.40);
+      --backdrop: rgba(28, 43, 72, 0.45);
+      --delta-up: #1C2B48;
+      --delta-down: #8EB1D1;
+      --shadow-card: 0 20px 45px -12px rgba(28, 43, 72, 0.28), 0 8px 20px -8px rgba(142, 177, 209, 0.40);
+    }
+
+    :root[data-theme="pink"] {
+      /* TEMA PINK: BLUSH COUTURE
+         Palet: Primary #F3D9DA, Secondary #D89AA0, Accent #7A3B41, Neutral #FBF4F2
+         Turunan (bukan dari palet, untuk hover & progress): #693238, #5A2A30, #A96B71, #C98890 */
+      --bg-main: #F3D9DA;
+      --gingham-stripe: rgba(216, 154, 160, 0.30);
+      --card-bg: #FBF4F2;
+      --card-border: #D89AA0;
+      --line-soft: #D89AA0;
+      --text-primary: #7A3B41;
+      --text-secondary: #7A3B41;
+      --on-dark: #FBF4F2;
+      --stage-bg: #F3D9DA;
+      --box-soft: #F3D9DA;
+      --num-color: #7A3B41;
+      --num-shadow: rgba(122, 59, 65, 0.20);
+      --btn-plus: #7A3B41;
+      --btn-plus-hover: #693238;
+      --btn-plus-border: #5A2A30;
+      --btn-minus: #F3D9DA;
+      --btn-minus-hover: #D89AA0;
+      --btn-step-active: #7A3B41;
+      --btn-step-shadow: rgba(122, 59, 65, 0.36);
+      --btn-shadow-soft: rgba(122, 59, 65, 0.24);
+      --btn-reset: #D89AA0;
+      --btn-reset-hover: #C98890;
+      --btn-tea-bg: #7A3B41;
+      --btn-tea-hover: #693238;
+      --btn-tea-shadow: rgba(122, 59, 65, 0.30);
+      --surface-soft: #F3D9DA;
+      --progress-bg: #FBF4F2;
+      --progress-fill: #D89AA0;
+      --progress-half: #A96B71;
+      --progress-full: #7A3B41;
+      --accent-glow: rgba(216, 154, 160, 0.55);
+      --dot-ring: rgba(216, 154, 160, 0.55);
+      --backdrop: rgba(122, 59, 65, 0.40);
+      --delta-up: #7A3B41;
+      --delta-down: #D89AA0;
+      --shadow-card: 0 20px 45px -12px rgba(122, 59, 65, 0.26), 0 8px 20px -8px rgba(216, 154, 160, 0.40);
     }
 
     * {
@@ -143,7 +192,7 @@
       height: 7px;
       border-radius: 50%;
       background-color: var(--text-primary);
-      box-shadow: 0 0 0 2.5px rgba(124, 102, 88, 0.40);
+      box-shadow: 0 0 0 2.5px var(--dot-ring);
     }
 
     .top-actions {
@@ -269,7 +318,7 @@
 
     .milestone-banner.full {
       background-color: var(--text-primary);
-      color: #FBF8F3;
+      color: var(--on-dark);
       border: 1px solid var(--text-primary);
     }
 
@@ -444,7 +493,7 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      box-shadow: 0 6px 15px -5px rgba(124, 102, 88, 0.30);
+      box-shadow: 0 6px 15px -5px var(--btn-shadow-soft);
       transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -468,7 +517,7 @@
     .btn-plus {
       background-color: var(--btn-plus);
       border: 1.5px solid var(--btn-plus-border);
-      color: #FBF8F3;
+      color: var(--on-dark);
     }
     .btn-plus:hover {
       background-color: var(--btn-plus-hover);
@@ -528,7 +577,7 @@
     .step-pill.active {
       background-color: var(--btn-step-active);
       border-color: var(--btn-plus-border);
-      color: #FBF8F3;
+      color: var(--on-dark);
       box-shadow: 0 3px 8px -2px var(--btn-step-shadow);
       transform: translateY(-1px);
     }
@@ -591,7 +640,7 @@
     .btn-reset {
       border: none;
       background-color: var(--btn-reset);
-      color: #FBF8F3;
+      color: var(--text-primary);
       transition: transform 0.16s ease, background-color 0.2s ease;
     }
 
@@ -608,7 +657,7 @@
       width: auto;
       border: none;
       background-color: var(--btn-tea-bg);
-      color: #FBF8F3;
+      color: var(--on-dark);
       text-decoration: none;
       box-shadow: 0 6px 14px -4px var(--btn-tea-shadow);
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
@@ -699,7 +748,7 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background-color: rgba(124, 102, 88, 0.45);
+      background-color: var(--backdrop);
       backdrop-filter: blur(4px);
       display: none;
       align-items: center;
@@ -765,7 +814,7 @@
     .btn-confirm-reset {
       background-color: var(--btn-plus);
       border-color: var(--btn-plus-border);
-      color: #FBF8F3;
+      color: var(--on-dark);
     }
   </style>
 </head>
@@ -783,6 +832,7 @@
             <span>Tersimpan Otomatis</span>
           </div>
           <div class="top-actions">
+            <button type="button" class="icon-btn" id="themeToggle" title="Ganti ke tema Pink" aria-label="Ganti tema warna">🌸</button>
             <button type="button" class="icon-btn" id="soundToggle" title="Suara Aktif/Nonaktif" aria-label="Suara">🔊</button>
           </div>
         </div>
@@ -879,7 +929,8 @@
       count: 0,
       step: 1,
       target: 50,
-      sound: true
+      sound: true,
+      theme: 'blue'
     };
 
     try {
@@ -894,6 +945,10 @@
     state.count = Number.isFinite(Number(state.count)) ? Math.max(0, Number(state.count)) : 0;
     state.step = ALLOWED_STEPS.includes(Number(state.step)) ? Number(state.step) : 1;
     state.target = Number.isFinite(Number(state.target)) && Number(state.target) > 0 ? Number(state.target) : 50;
+
+    const THEMES = ['blue', 'pink'];
+    if (!THEMES.includes(state.theme)) state.theme = 'blue';
+    document.documentElement.dataset.theme = state.theme;
 
     const mainCard = document.getElementById('mainCard');
     const counterTitleInput = document.getElementById('counterTitleInput');
@@ -911,6 +966,7 @@
     const btnMinus = document.getElementById('btnMinus');
     const btnReset = document.getElementById('btnReset');
     const soundToggle = document.getElementById('soundToggle');
+    const themeToggle = document.getElementById('themeToggle');
     const resetModal = document.getElementById('resetModal');
     const cancelReset = document.getElementById('cancelReset');
     const confirmReset = document.getElementById('confirmReset');
@@ -1073,7 +1129,8 @@
       const bubble = document.createElement('span');
       bubble.className = 'delta-pop';
       bubble.textContent = delta > 0 ? `+${delta}` : `${delta}`;
-      bubble.style.color = delta > 0 ? '#7C6658' : '#A98E79';
+      const rootStyle = getComputedStyle(document.documentElement);
+      bubble.style.color = (delta > 0 ? rootStyle.getPropertyValue('--delta-up') : rootStyle.getPropertyValue('--delta-down')).trim();
       bubble.style.left = (45 + Math.random() * 10) + '%';
       bubble.style.top = '38%';
       counterStage.appendChild(bubble);
@@ -1093,6 +1150,10 @@
 
       counterDisplay.textContent = state.count.toLocaleString('id-ID');
       soundToggle.textContent = state.sound ? '🔊' : '🔇';
+
+      document.documentElement.dataset.theme = state.theme;
+      themeToggle.textContent = state.theme === 'blue' ? '🌸' : '💙';
+      themeToggle.title = state.theme === 'blue' ? 'Ganti ke tema Pink' : 'Ganti ke tema Biru';
 
       stepPills.forEach(btn => {
         const btnStep = Number(btn.dataset.step);
@@ -1205,6 +1266,12 @@
     soundToggle.addEventListener('click', () => {
       state.sound = !state.sound;
       if (state.sound) soundPlus();
+      render();
+    });
+
+    themeToggle.addEventListener('click', () => {
+      state.theme = state.theme === 'blue' ? 'pink' : 'blue';
+      soundStepSelect(5);
       render();
     });
 
