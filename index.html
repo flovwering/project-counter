@@ -7,87 +7,59 @@
   <!-- Ikon Tab Browser (Favicon) -->
   <link rel="icon" type="image/png" href="rajuthif.png" />
   <link rel="apple-touch-icon" href="rajuthif.png" />
-  <!-- Google Fonts: Fredoka (Angka Playful) & Plus Jakarta Sans (Teks Utama) -->
+  <!-- Google Fonts: Fredoka & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-main: #C4D8E5;
-      --gingham-stripe: rgba(142, 177, 209, 0.32);
-      --card-bg: #E8ECEF;
-      --card-border: #A7C7E7;
-      --line-soft: #A7C7E7;
-      --text-primary: #1C2B48;
-      --text-secondary: #1C2B48;
-      --on-dark: #E8ECEF;
-      --stage-bg: #C4D8E5;
-      --box-soft: #C4D8E5;
-      --num-color: #1C2B48;
-      --num-shadow: rgba(28, 43, 72, 0.22);
-      --btn-plus: #1C2B48;
-      --btn-plus-hover: #2B3F66;
-      --btn-plus-border: #131E35;
-      --btn-minus: #C4D8E5;
-      --btn-minus-hover: #A7C7E7;
-      --btn-step-active: #1C2B48;
-      --btn-step-shadow: rgba(28, 43, 72, 0.34);
-      --btn-shadow-soft: rgba(28, 43, 72, 0.28);
-      --btn-reset: #8EB1D1;
-      --btn-reset-hover: #7BA0C3;
-      --btn-tea-bg: #1C2B48;
-      --btn-tea-hover: #2B3F66;
-      --btn-tea-shadow: rgba(28, 43, 72, 0.30);
-      --surface-soft: #C4D8E5;
-      --progress-bg: #E8ECEF;
-      --progress-fill: #A7C7E7;
-      --progress-half: #8EB1D1;
-      --progress-full: #1C2B48;
-      --accent-glow: rgba(142, 177, 209, 0.50);
-      --dot-ring: rgba(28, 43, 72, 0.40);
-      --backdrop: rgba(28, 43, 72, 0.45);
-      --delta-up: #1C2B48;
-      --delta-down: #8EB1D1;
-      --shadow-card: 0 24px 50px -12px rgba(28, 43, 72, 0.30), 0 10px 24px -8px rgba(142, 177, 209, 0.42);
-    }
+      --primary: #7E0001;
+      --secondary: #AB3A12;
+      --accent: #FDA237;
+      --bg-main: #FFF8EE;
+      --surface: #FFFFFF;
+      --text: #471B1C;
+      
+      --card-bg: #FFFFFF;
+      --card-border: #F3D2C1;
+      --line-soft: #F7E5DC;
+      
+      /* Background Stage Konsisten (Soft & Gradasi Senada Palette) */
+      --stage-bg: linear-gradient(135deg, #FCF3CF 0%, #FDEBD0 60%, #FAD7A0 100%);
 
-    :root[data-theme="pink"] {
-      --bg-main: #F3D9DA;
-      --gingham-stripe: rgba(216, 154, 160, 0.30);
-      --card-bg: #FBF4F2;
-      --card-border: #D89AA0;
-      --line-soft: #D89AA0;
-      --text-primary: #7A3B41;
-      --text-secondary: #7A3B41;
-      --on-dark: #FBF4F2;
-      --stage-bg: #F3D9DA;
-      --box-soft: #F3D9DA;
-      --num-color: #7A3B41;
-      --num-shadow: rgba(122, 59, 65, 0.20);
-      --btn-plus: #7A3B41;
-      --btn-plus-hover: #693238;
-      --btn-plus-border: #5A2A30;
-      --btn-minus: #F3D9DA;
-      --btn-minus-hover: #D89AA0;
-      --btn-step-active: #7A3B41;
-      --btn-step-shadow: rgba(122, 59, 65, 0.36);
-      --btn-shadow-soft: rgba(122, 59, 65, 0.24);
-      --btn-reset: #D89AA0;
-      --btn-reset-hover: #C98890;
-      --btn-tea-bg: #7A3B41;
-      --btn-tea-hover: #693238;
-      --btn-tea-shadow: rgba(122, 59, 65, 0.30);
-      --surface-soft: #F3D9DA;
-      --progress-bg: #FBF4F2;
-      --progress-fill: #D89AA0;
-      --progress-half: #A96B71;
-      --progress-full: #7A3B41;
-      --accent-glow: rgba(216, 154, 160, 0.55);
-      --dot-ring: rgba(216, 154, 160, 0.55);
-      --backdrop: rgba(122, 59, 65, 0.40);
-      --delta-up: #7A3B41;
-      --delta-down: #D89AA0;
-      --shadow-card: 0 24px 50px -12px rgba(122, 59, 65, 0.28), 0 10px 24px -8px rgba(216, 154, 160, 0.40);
+      /* Gradasi Font Angka Sesuai Tema */
+      --num-gradient: linear-gradient(135deg, #7E0001 0%, #AB3A12 50%, #FDA237 100%);
+
+      --btn-plus: #7E0001;
+      --btn-plus-hover: #630001;
+      --btn-plus-border: #471B1C;
+      --btn-minus: #FFF5EE;
+      --btn-minus-hover: #FADBD8;
+      --btn-step-active: #7E0001;
+      --btn-step-shadow: rgba(126, 0, 1, 0.25);
+      --btn-shadow-soft: rgba(71, 27, 28, 0.15);
+      --btn-reset: #F5B7B1;
+      --btn-reset-hover: #EC7063;
+      
+      /* Warna Tombol Kritik & Saran */
+      --btn-feedback-bg: #AB3A12;
+      --btn-feedback-hover: #8F2F0E;
+      --btn-feedback-shadow: rgba(171, 58, 18, 0.25);
+
+      --btn-tea-bg: #7E0001;
+      --btn-tea-hover: #630001;
+      --btn-tea-shadow: rgba(126, 0, 1, 0.25);
+      
+      --surface-soft: #FFF5EE;
+      --progress-bg: #F7E5DC;
+      --progress-fill: #7E0001;
+      
+      --accent-glow: rgba(126, 0, 1, 0.3);
+      --dot-ring: rgba(126, 0, 1, 0.2);
+      --backdrop: rgba(71, 27, 28, 0.4);
+      --delta-up: #7E0001;
+      --delta-down: #AB3A12;
+      --shadow-card: 0 20px 45px -12px rgba(71, 27, 28, 0.2), 0 8px 20px -8px rgba(171, 58, 18, 0.2);
     }
 
     * {
@@ -99,7 +71,7 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-main);
-      color: var(--text-primary);
+      color: var(--text);
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
@@ -110,6 +82,7 @@
       position: relative;
     }
 
+    /* Background Gingham dengan nuansa warna Primary (#7E0001) tipis */
     body::before {
       content: '';
       position: fixed;
@@ -119,22 +92,21 @@
       background-image:
         repeating-linear-gradient(
           0deg,
-          var(--gingham-stripe) 0px,
-          var(--gingham-stripe) 28px,
+          rgba(126, 0, 1, 0.06) 0px,
+          rgba(126, 0, 1, 0.06) 28px,
           transparent 28px,
           transparent 56px
         ),
         repeating-linear-gradient(
           90deg,
-          var(--gingham-stripe) 0px,
-          var(--gingham-stripe) 28px,
+          rgba(126, 0, 1, 0.06) 0px,
+          rgba(126, 0, 1, 0.06) 28px,
           transparent 28px,
           transparent 56px
         );
       filter: blur(1px);
     }
 
-    /* KARTU DIBUAT LEBIH BESAR (max-width diperluas dan padding ditambah) */
     .card {
       position: relative;
       z-index: 1;
@@ -171,13 +143,13 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background-color: var(--box-soft);
-      border: 1px solid var(--line-soft);
+      background-color: var(--surface-soft);
+      border: 1px solid var(--card-border);
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.73rem;
       font-weight: 700;
-      color: var(--text-secondary);
+      color: var(--text);
       white-space: nowrap;
     }
 
@@ -185,7 +157,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background-color: var(--text-primary);
+      background-color: var(--primary);
       box-shadow: 0 0 0 2.5px var(--dot-ring);
     }
 
@@ -199,9 +171,9 @@
       width: 38px;
       height: 38px;
       border-radius: 13px;
-      border: 1.5px solid var(--line-soft);
-      background-color: var(--box-soft);
-      color: var(--text-primary);
+      border: 1.5px solid var(--card-border);
+      background-color: var(--surface-soft);
+      color: var(--text);
       cursor: pointer;
       display: grid;
       place-items: center;
@@ -246,7 +218,7 @@
       font-family: 'Fredoka', sans-serif;
       font-size: 1.22rem;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--text);
       background-color: transparent;
       border: none;
       outline: none;
@@ -259,7 +231,7 @@
     .edit-pencil-btn {
       border: none;
       background-color: transparent;
-      color: var(--text-primary);
+      color: var(--text);
       font-size: 0.9rem;
       cursor: pointer;
       padding: 2px;
@@ -273,19 +245,50 @@
       transform: scale(1.12);
     }
 
-    /* Area Tampilan Angka Utama */
+    /* Area Tampilan Angka dengan Background Konsisten & Kilatan Glossy */
     .counter-stage {
       position: relative;
-      background-color: var(--stage-bg);
-      border: 1.5px solid var(--card-border);
-      border-radius: 24px;
+      background: var(--stage-bg);
+      border-radius: 28px;
       padding: 24px 16px 18px;
       text-align: center;
       margin-bottom: 16px;
       overflow: hidden;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 0 4px var(--card-bg), inset 0 0 15px rgba(126, 0, 1, 0.06);
+    }
+
+    /* Efek Kilatan Glossy Berjalan di Background (Durasi 6s diperlambat) */
+    .glossy-sweep {
+      position: absolute;
+      inset: -50%;
+      background: linear-gradient(
+        135deg,
+        transparent 35%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 65%
+      );
+      transform: rotate(25deg);
+      pointer-events: none;
+      z-index: 1;
+      animation: glossyMove 6s ease-in-out infinite;
+    }
+
+    @keyframes glossyMove {
+      0% {
+        transform: translate(-100%, -100%) rotate(25deg);
+      }
+      50% {
+        transform: translate(100%, 100%) rotate(25deg);
+      }
+      100% {
+        transform: translate(100%, 100%) rotate(25deg);
+      }
     }
 
     .milestone-banner {
+      position: relative;
+      z-index: 2;
       display: inline-block;
       min-height: 24px;
       padding: 4px 14px;
@@ -303,29 +306,43 @@
       transform: translateY(0) scale(1);
     }
 
-    .milestone-banner.half {
+    .milestone-banner.half,
+    .milestone-banner.full {
       background-color: var(--card-bg);
-      color: var(--text-primary);
+      color: var(--text);
       border: 1px solid var(--card-border);
     }
 
-    .milestone-banner.full {
-      background-color: var(--text-primary);
-      color: var(--on-dark);
-      border: 1px solid var(--text-primary);
+    .counter-display-wrapper {
+      position: relative;
+      z-index: 2;
     }
 
+    /* Warna Font Angka Gradasi */
     .counter-value {
       font-family: 'Fredoka', cursive, sans-serif;
       font-size: 5.6rem;
       font-weight: 700;
       line-height: 1.05;
-      color: var(--num-color);
-      filter: drop-shadow(0 4px 8px var(--num-shadow));
+      background-image: var(--num-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 8px rgba(71, 27, 28, 0.15));
       user-select: none;
       display: inline-block;
       will-change: transform;
       font-variant-numeric: tabular-nums;
+    }
+
+    /* Teks Waktu Terakhir Update */
+    .last-update-time {
+      position: relative;
+      z-index: 2;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-top: 2px;
+      opacity: 0.85;
     }
 
     @keyframes cheerUp {
@@ -377,6 +394,7 @@
       font-weight: 700;
       font-size: 1.3rem;
       pointer-events: none;
+      z-index: 10;
       animation: floatDelta 0.7s ease-out forwards;
     }
 
@@ -419,11 +437,11 @@
       }
     }
 
-    /* Target Box & Progress Bar dengan Efek Berjalan (Shimmer/Striped Animation) */
     .target-box {
+      position: relative;
+      z-index: 2;
       margin-top: 14px;
-      padding-top: 12px;
-      border-top: 1px dashed var(--line-soft);
+      padding-top: 4px;
     }
 
     .target-header {
@@ -432,7 +450,7 @@
       align-items: center;
       font-size: 0.8rem;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--text);
       margin-bottom: 8px;
     }
 
@@ -440,7 +458,7 @@
       width: 100%;
       height: 12px;
       background-color: var(--progress-bg);
-      border: 1px solid var(--card-border);
+      border: 1.5px solid var(--card-border);
       border-radius: 999px;
       overflow: hidden;
       position: relative;
@@ -452,11 +470,11 @@
       border-radius: 999px;
       background-color: var(--progress-fill);
       position: relative;
-      transition: width 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease;
+      transition: width 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
       overflow: hidden;
+      box-shadow: 0 0 10px var(--accent-glow);
     }
 
-    /* Efek garis berjalan / bergerak saat diam (shimmer effect tanpa gambar) */
     .progress-fill::after {
       content: '';
       position: absolute;
@@ -464,7 +482,7 @@
       background-image: linear-gradient(
         90deg,
         rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0.4) 50%,
         rgba(255, 255, 255, 0) 100%
       );
       background-size: 200px 100%;
@@ -476,17 +494,6 @@
       100% { background-position: 200px 0; }
     }
 
-    .progress-fill.half-reached {
-      background-color: var(--progress-half);
-      box-shadow: 0 0 10px var(--accent-glow);
-    }
-
-    .progress-fill.full-reached {
-      background-color: var(--progress-full);
-      box-shadow: 0 0 12px var(--accent-glow);
-    }
-
-    /* Tombol Kontrol Utama */
     .main-controls {
       display: grid;
       grid-template-columns: 1fr 1.45fr;
@@ -519,8 +526,8 @@
 
     .btn-minus {
       background-color: var(--btn-minus);
-      border: 1.5px solid var(--line-soft);
-      color: var(--text-primary);
+      border: 1.5px solid var(--card-border);
+      color: var(--text);
     }
     .btn-minus:hover {
       background-color: var(--btn-minus-hover);
@@ -529,13 +536,12 @@
     .btn-plus {
       background-color: var(--btn-plus);
       border: 1.5px solid var(--btn-plus-border);
-      color: var(--on-dark);
+      color: #FFF8EE;
     }
     .btn-plus:hover {
       background-color: var(--btn-plus-hover);
     }
 
-    /* Kartu Pengaturan Langkah & Target */
     .settings-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -554,7 +560,7 @@
       display: block;
       font-size: 0.75rem;
       font-weight: 700;
-      color: var(--text-primary);
+      color: var(--text);
       margin-bottom: 8px;
     }
 
@@ -567,7 +573,7 @@
     .step-pill {
       border: 1.5px solid var(--card-border);
       background-color: var(--card-bg);
-      color: var(--text-primary);
+      color: var(--text);
       border-radius: 10px;
       padding: 8px 0;
       font-family: 'Fredoka', sans-serif;
@@ -589,7 +595,7 @@
     .step-pill.active {
       background-color: var(--btn-step-active);
       border-color: var(--btn-plus-border);
-      color: var(--on-dark);
+      color: #FFF8EE;
       box-shadow: 0 3px 8px -2px var(--btn-step-shadow);
       transform: translateY(-1px);
     }
@@ -598,7 +604,7 @@
       width: 100%;
       border: 1.5px solid var(--card-border);
       background-color: var(--card-bg);
-      color: var(--text-primary);
+      color: var(--text);
       border-radius: 10px;
       padding: 8px 10px;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -608,11 +614,16 @@
     }
 
     .input-mini:focus {
-      border-color: var(--text-primary);
+      border-color: var(--primary);
     }
 
-    /* Footer & Tombol Reset + Kritik & Saran + Traktir Es Teh */
     .footer-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-main {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -622,7 +633,7 @@
 
     .shortcut-hint {
       font-size: 0.72rem;
-      color: var(--text-secondary);
+      color: var(--secondary);
       font-weight: 600;
     }
 
@@ -631,6 +642,17 @@
       align-items: center;
       gap: 8px;
       margin-left: auto;
+    }
+
+    .footer-credit {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--secondary);
+      opacity: 0.85;
+      border-top: 1px dashed var(--card-border);
+      padding-top: 8px;
+      margin-top: 2px;
     }
 
     .btn-reset,
@@ -653,7 +675,7 @@
     .btn-reset {
       border: none;
       background-color: var(--btn-reset);
-      color: var(--text-primary);
+      color: var(--text);
       transition: transform 0.16s ease, background-color 0.2s ease;
     }
 
@@ -666,24 +688,38 @@
       transform: scale(0.94);
     }
 
-    .btn-feedback,
+    .btn-feedback {
+      border: none;
+      background-color: var(--btn-feedback-bg);
+      color: #FFF8EE;
+      text-decoration: none;
+      box-shadow: 0 6px 14px -4px var(--btn-feedback-shadow);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-feedback:hover {
+      background-color: var(--btn-feedback-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-feedback:active {
+      transform: scale(0.95);
+    }
+
     .btn-es-teh {
-      width: auto;
       border: none;
       background-color: var(--btn-tea-bg);
-      color: var(--on-dark);
+      color: #FFF8EE;
       text-decoration: none;
       box-shadow: 0 6px 14px -4px var(--btn-tea-shadow);
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn-feedback:hover,
     .btn-es-teh:hover {
       background-color: var(--btn-tea-hover);
       transform: translateY(-2px);
     }
 
-    .btn-feedback:active,
     .btn-es-teh:active {
       transform: scale(0.95);
     }
@@ -772,7 +808,7 @@
 
     .modal-desc {
       font-size: 0.88rem;
-      color: var(--text-secondary);
+      color: var(--secondary);
       margin-bottom: 20px;
       line-height: 1.45;
     }
@@ -799,13 +835,13 @@
 
     .btn-cancel {
       background-color: var(--surface-soft);
-      color: var(--text-primary);
+      color: var(--text);
     }
 
     .btn-confirm-reset {
-      background-color: var(--btn-plus);
+      background-color: var(--primary);
       border-color: var(--btn-plus-border);
-      color: var(--on-dark);
+      color: #FFF8EE;
     }
   </style>
 </head>
@@ -823,7 +859,6 @@
             <span>Tersimpan Otomatis</span>
           </div>
           <div class="top-actions">
-            <button type="button" class="icon-btn" id="themeToggle" title="Ganti ke tema Pink" aria-label="Ganti tema warna">🌸</button>
             <button type="button" class="icon-btn" id="soundToggle" title="Suara Aktif/Nonaktif" aria-label="Suara">🔊</button>
           </div>
         </div>
@@ -844,12 +879,19 @@
         </div>
       </header>
 
-      <!-- Display Angka & Target -->
+      <!-- Display Angka dengan Background Tetap & Efek Glossy -->
       <section class="counter-stage" id="counterStage">
-        <div class="milestone-banner" id="milestoneBanner">✨ Setengah Jalan (50%)!</div>
-        <div>
+        <!-- Efek Kilatan Glossy -->
+        <div class="glossy-sweep" aria-hidden="true"></div>
+
+        <div class="milestone-banner" id="milestoneBanner"></div>
+        
+        <div class="counter-display-wrapper">
           <span class="counter-value" id="counterDisplay">0</span>
         </div>
+
+        <!-- Waktu Terakhir Update -->
+        <div class="last-update-time" id="lastUpdateTime">Terakhir update: Baru saja</div>
 
         <div class="target-box" id="targetBox">
           <div class="target-header">
@@ -885,19 +927,24 @@
         </div>
       </section>
 
-      <!-- Footer Pintasan, Tombol Reset, Kritik & Saran, & Traktir Es Teh -->
+      <!-- Footer Pintasan, Tombol Reset, Kritik & Saran, Traktir Es Teh, & Credit -->
       <footer class="footer-bar">
-        <span class="shortcut-hint">Spasi / ↑ : + &nbsp;|&nbsp; ↓ : − &nbsp;|&nbsp; R : Reset</span>
-        <div class="footer-actions">
-          <button type="button" class="btn-reset" id="btnReset">↺ Reset</button>
-          <a href="https://forms.gle/eqAKjefinKbaFiTF9" target="_blank" rel="noopener noreferrer" class="btn-feedback">
-            <span>💬</span>
-            <span>Kritik & Saran</span>
-          </a>
-          <a href="https://teer.id/flovwering" target="_blank" rel="noopener noreferrer" class="btn-es-teh">
-            <span class="tea-icon">🍹</span>
-            <span>Traktir Es Teh</span>
-          </a>
+        <div class="footer-main">
+          <span class="shortcut-hint">Spasi / ↑ : + &nbsp;|&nbsp; ↓ : − &nbsp;|&nbsp; R : Reset</span>
+          <div class="footer-actions">
+            <button type="button" class="btn-reset" id="btnReset">↩️ Reset</button>
+            <a href="https://forms.gle/eqAKjefinKbaFiTF9" target="_blank" rel="noopener noreferrer" class="btn-feedback">
+              <span>💬</span>
+              <span>Kritik & Saran</span>
+            </a>
+            <a href="https://teer.id/flovwering" target="_blank" rel="noopener noreferrer" class="btn-es-teh">
+              <span class="tea-icon">🍹</span>
+              <span>Traktir Es Teh</span>
+            </a>
+          </div>
+        </div>
+        <div class="footer-credit">
+          Credit: flowvering 2026
         </div>
       </footer>
     </div>
@@ -916,7 +963,7 @@
   </div>
 
   <script>
-    const STORAGE_KEY = 'aesthetic_cheerful_counter_v15';
+    const STORAGE_KEY = 'aesthetic_scalloped_counter_v18';
     const ALLOWED_STEPS = [1, 5, 10];
 
     let state = {
@@ -925,7 +972,7 @@
       step: 1,
       target: 50,
       sound: true,
-      theme: 'blue'
+      lastUpdated: null
     };
 
     try {
@@ -941,16 +988,13 @@
     state.step = ALLOWED_STEPS.includes(Number(state.step)) ? Number(state.step) : 1;
     state.target = Number.isFinite(Number(state.target)) && Number(state.target) > 0 ? Number(state.target) : 50;
 
-    const THEMES = ['blue', 'pink'];
-    if (!THEMES.includes(state.theme)) state.theme = 'blue';
-    document.documentElement.dataset.theme = state.theme;
-
     const mainCard = document.getElementById('mainCard');
     const counterTitleInput = document.getElementById('counterTitleInput');
     const editTitleBtn = document.getElementById('editTitleBtn');
     const counterStage = document.getElementById('counterStage');
     const counterDisplay = document.getElementById('counterDisplay');
     const milestoneBanner = document.getElementById('milestoneBanner');
+    const lastUpdateTime = document.getElementById('lastUpdateTime');
     const targetStatusText = document.getElementById('targetStatusText');
     const targetPercentText = document.getElementById('targetPercentText');
     const progressFill = document.getElementById('progressFill');
@@ -961,7 +1005,6 @@
     const btnMinus = document.getElementById('btnMinus');
     const btnReset = document.getElementById('btnReset');
     const soundToggle = document.getElementById('soundToggle');
-    const themeToggle = document.getElementById('themeToggle');
     const resetModal = document.getElementById('resetModal');
     const cancelReset = document.getElementById('cancelReset');
     const confirmReset = document.getElementById('confirmReset');
@@ -971,8 +1014,39 @@
       step: ['⋆', '˙', '⟡', '˚', '⊹', '₊', '⋆˙⟡', '⋆.˚', '⊹₊⟡'],
       half: ['⋆', '⟡', '⊹', '✦', '✧', '⋆˙⟡', '⋆.˚', '⊹₊⟡', '₊˚⊹', '♡'],
       full: ['⋆', '⟡', '⊹', '✦', '✧', '❋', '✿', '♡', '⋆˙⟡', '⋆.˚', '⊹₊⟡', '₊˚⊹', '⋆⁺₊⋆', '˚₊‧'],
-      colors: ['#E58F9B', '#EDB26B', '#8FBF98', '#79AEDB', '#A996D6', '#E39A74', '#7CBFB8', '#D68FB8']
+      colors: ['#7E0001', '#AB3A12', '#FDA237', '#E59866', '#D35400', '#F5B7B1', '#EC7063']
     };
+
+    function formatRelativeTime(timestamp) {
+      if (!timestamp) return 'Belum ada aktivitas';
+      const now = new Date();
+      const past = new Date(timestamp);
+      const diffSec = Math.floor((now - past) / 1000);
+
+      if (diffSec < 45) return 'Terakhir update: Baru saja';
+      if (diffSec < 3600) {
+        const mins = Math.floor(diffSec / 60);
+        return `Terakhir update: ${mins} menit yang lalu`;
+      }
+
+      const isToday = now.toDateString() === past.toDateString();
+      const timeStr = past.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+      if (isToday) {
+        return `Terakhir update: Hari ini, ${timeStr}`;
+      }
+
+      const yesterday = new Date(now);
+      yesterday.setDate(now.getDate() - 1);
+      const isYesterday = yesterday.toDateString() === past.toDateString();
+
+      if (isYesterday) {
+        return `Terakhir update: Kemarin, ${timeStr}`;
+      }
+
+      const dateStr = past.toLocaleDateString('id-ID', { day: 'numeric', month: 'short' });
+      return `Terakhir update: ${dateStr}, ${timeStr}`;
+    }
 
     function saveState() {
       try {
@@ -1044,31 +1118,25 @@
       playTone(baseFreq, 'sine', now, 0.09, 0.12, baseFreq * 1.15);
     }
 
-    function soundHalfMilestone() {
+    function soundMilestone(type) {
       if (!state.sound) return;
       const now = getAudioCtx().currentTime;
-      const notes = [523.25, 659.25, 783.99];
-      notes.forEach((n, i) => {
-        playTone(n, 'triangle', now + i * 0.09, 0.24, 0.18);
-        playTone(n * 2, 'sine', now + i * 0.09, 0.2, 0.06);
-      });
-    }
-
-    function soundFullMilestone() {
-      if (!state.sound) return;
-      const now = getAudioCtx().currentTime;
-      const fanfare = [
-        { f: 523.25, t: 0.00, d: 0.16 },
-        { f: 659.25, t: 0.08, d: 0.16 },
-        { f: 783.99, t: 0.16, d: 0.16 },
-        { f: 1046.50, t: 0.25, d: 0.45 },
-        { f: 1318.51, t: 0.28, d: 0.45 },
-        { f: 1567.98, t: 0.31, d: 0.50 }
-      ];
-      fanfare.forEach(item => {
-        playTone(item.f, 'triangle', now + item.t, item.d, 0.17);
-        playTone(item.f, 'sine', now + item.t, item.d, 0.10);
-      });
+      if (type === 'full') {
+        const fanfare = [
+          { f: 523.25, t: 0.00, d: 0.16 },
+          { f: 659.25, t: 0.08, d: 0.16 },
+          { f: 783.99, t: 0.16, d: 0.16 },
+          { f: 1046.50, t: 0.25, d: 0.45 }
+        ];
+        fanfare.forEach(item => {
+          playTone(item.f, 'triangle', now + item.t, item.d, 0.17);
+        });
+      } else {
+        const notes = [523.25, 659.25, 783.99];
+        notes.forEach((n, i) => {
+          playTone(n, 'triangle', now + i * 0.09, 0.2, 0.16);
+        });
+      }
     }
 
     function spawnParticles(level) {
@@ -1077,13 +1145,9 @@
       const originY = rect.top + rect.height / 2;
 
       const isFull = level === 'full';
-      const isHalf = level === 'half';
-      const count = isFull ? 48 : isHalf ? 26 : 8;
-      const shapes = isFull
-        ? PARTICLE_CONFIG.full
-        : isHalf
-          ? PARTICLE_CONFIG.half
-          : PARTICLE_CONFIG.step;
+      const isMid = level === 'half';
+      const count = isFull ? 48 : isMid ? 26 : 8;
+      const shapes = isFull ? PARTICLE_CONFIG.full : level === 'half' ? PARTICLE_CONFIG.half : PARTICLE_CONFIG.step;
 
       for (let i = 0; i < count; i++) {
         const el = document.createElement('span');
@@ -1093,16 +1157,12 @@
         const color = PARTICLE_CONFIG.colors[Math.floor(Math.random() * PARTICLE_CONFIG.colors.length)];
         el.textContent = shape;
         el.style.color = color;
-        el.style.fontSize = (isFull ? (20 + Math.random() * 16) : isHalf ? (18 + Math.random() * 12) : (16 + Math.random() * 9)) + 'px';
+        el.style.fontSize = (isFull ? (20 + Math.random() * 16) : isMid ? (18 + Math.random() * 12) : (16 + Math.random() * 9)) + 'px';
 
         const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
-        const distance = isFull
-          ? (115 + Math.random() * 215)
-          : isHalf
-            ? (70 + Math.random() * 115)
-            : (42 + Math.random() * 68);
+        const distance = isFull ? (115 + Math.random() * 215) : isMid ? (70 + Math.random() * 115) : (42 + Math.random() * 68);
         const tx = Math.cos(angle) * distance;
-        const ty = Math.sin(angle) * distance - (isFull ? 42 : isHalf ? 24 : 18);
+        const ty = Math.sin(angle) * distance - (isFull ? 42 : isMid ? 24 : 18);
         const rot = (Math.random() - 0.5) * 720;
 
         el.style.left = originX + 'px';
@@ -1110,7 +1170,7 @@
         el.style.setProperty('--tx', `${tx}px`);
         el.style.setProperty('--ty', `${ty}px`);
         el.style.setProperty('--rot', `${rot}deg`);
-        el.style.setProperty('--dur', (isFull ? (1.25 + Math.random() * 0.7) : isHalf ? (0.9 + Math.random() * 0.4) : (0.65 + Math.random() * 0.25)) + 's');
+        el.style.setProperty('--dur', (isFull ? (1.25 + Math.random() * 0.7) : (0.9 + Math.random() * 0.4)) + 's');
 
         fxLayer.appendChild(el);
         setTimeout(() => el.remove(), 2100);
@@ -1142,10 +1202,7 @@
 
       counterDisplay.textContent = state.count.toLocaleString('id-ID');
       soundToggle.textContent = state.sound ? '🔊' : '🔇';
-
-      document.documentElement.dataset.theme = state.theme;
-      themeToggle.textContent = state.theme === 'blue' ? '🌸' : '💙';
-      themeToggle.title = state.theme === 'blue' ? 'Ganti ke tema Pink' : 'Ganti ke tema Biru';
+      lastUpdateTime.textContent = formatRelativeTime(state.lastUpdated);
 
       stepPills.forEach(btn => {
         const btnStep = Number(btn.dataset.step);
@@ -1173,31 +1230,24 @@
         progressFill.style.width = '0%';
       }
 
-      progressFill.classList.remove('half-reached', 'full-reached');
       milestoneBanner.classList.remove('show', 'half', 'full');
 
-      if (target > 0 && pct >= 100) {
-        progressFill.classList.add('full-reached');
-        milestoneBanner.textContent = '🎉 Target 100% Tercapai! Selamat!';
-        milestoneBanner.classList.add('show', 'full');
-      } else if (target > 0 && pct >= 50) {
-        progressFill.classList.add('half-reached');
-        milestoneBanner.textContent = '✨ Sudah setengah jalan! Semangat!';
-        milestoneBanner.classList.add('show', 'half');
-      }
-
       const crossed100 = actionType === 'plus' && target > 0 && prevPct < 100 && pct >= 100;
-      const crossed50 = actionType === 'plus' && target > 0 && prevPct < 50 && pct >= 50 && pct < 100;
+      const crossed50 = actionType === 'plus' && target > 0 && prevPct < 50 && pct >= 50;
 
       if (crossed100) {
+        milestoneBanner.textContent = '🎉 Target 100% Tercapai!';
+        milestoneBanner.classList.add('show', 'full');
         triggerClassAnim(counterDisplay, 'anim-full');
         triggerClassAnim(mainCard, 'celebrate-full');
-        soundFullMilestone();
+        soundMilestone('full');
         spawnParticles('full');
       } else if (crossed50) {
+        milestoneBanner.textContent = '✨ Setengah Jalan 50%';
+        milestoneBanner.classList.add('show', 'half');
         triggerClassAnim(counterDisplay, 'anim-half');
         triggerClassAnim(mainCard, 'celebrate-half');
-        soundHalfMilestone();
+        soundMilestone('half');
         spawnParticles('half');
       } else if (actionType === 'plus') {
         triggerClassAnim(counterDisplay, 'anim-up');
@@ -1218,6 +1268,7 @@
       const stepValue = ALLOWED_STEPS.includes(Number(state.step)) ? Number(state.step) : 1;
       const prev = state.count;
       state.count += stepValue;
+      state.lastUpdated = new Date().toISOString();
       spawnDeltaBubble(stepValue);
       render('plus', prev);
     }
@@ -1227,6 +1278,7 @@
       const prev = state.count;
       state.count = Math.max(0, state.count - stepValue);
       if (prev !== state.count) {
+        state.lastUpdated = new Date().toISOString();
         spawnDeltaBubble(-(prev - state.count));
       }
       render('minus', prev);
@@ -1252,6 +1304,7 @@
     targetInput.addEventListener('input', (e) => {
       const val = parseInt(e.target.value, 10);
       state.target = val > 0 ? val : 0;
+      state.lastUpdated = new Date().toISOString();
       render();
     });
 
@@ -1261,22 +1314,18 @@
       render();
     });
 
-    themeToggle.addEventListener('click', () => {
-      state.theme = state.theme === 'blue' ? 'pink' : 'blue';
-      soundStepSelect(5);
-      render();
-    });
-
     counterTitleInput.addEventListener('input', (e) => {
       state.title = e.target.value;
-      saveState();
+      state.lastUpdated = new Date().toISOString();
+      render();
     });
 
     counterTitleInput.addEventListener('blur', () => {
       if (!state.title.trim()) {
         state.title = 'My Project Counter';
         counterTitleInput.value = state.title;
-        saveState();
+        state.lastUpdated = new Date().toISOString();
+        render();
       }
     });
 
@@ -1302,6 +1351,7 @@
     confirmReset.addEventListener('click', () => {
       const prev = state.count;
       state.count = 0;
+      state.lastUpdated = new Date().toISOString();
       resetModal.classList.remove('open');
       render('reset', prev);
     });
@@ -1328,6 +1378,10 @@
         resetModal.classList.add('open');
       }
     });
+
+    setInterval(() => {
+      lastUpdateTime.textContent = formatRelativeTime(state.lastUpdated);
+    }, 60000);
 
     render();
   </script>
