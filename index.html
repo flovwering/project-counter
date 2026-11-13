@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,38 +11,49 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet" />
- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-<style>
+  <style>
     /* ==========================================
-       VARIABEL WARNA: TAMAN BUNGA WARNA-WARNI
-       Sakura Pink, Buttercup Yellow, Lavender Lilac, Sky Bluebell, Peach Coral & Sage Leaf
+       TEMA NUDE: IVORY CREAM + SOFT BEIGE + WARM NUDE + PALE ALMOND + TAUPE BROWN
+       Palet:
+       - #FBF8F3 Ivory Cream (Card, teks di atas tombol gelap)
+       - #D0BEAB Soft Beige (Border, gingham, progress awal)
+       - #A98E79 Warm Nude (Reset, progress 50%)
+       - #E8DDD0 Pale Almond (Background, stage, box)
+       - #7C6658 Taupe Brown (Teks, angka, tombol + dan CTA)
        ========================================== */
     :root {
-      --bg-main: #FFF8F3;
-      /*--bg-sakura: rgba(255, 143, 171, 0.22);
-      --bg-buttercup: rgba(255, 209, 102, 0.24);
-      --bg-lavender: rgba(184, 146, 255, 0.20);
-      --bg-bluebell: rgba(114, 189, 255, 0.20);*/
-      --card-bg: #FFFDFB;
-      --card-border: #F5C6D6;
-      --text-primary: #572742;
-      --text-secondary: #8C5A75;
-      /* Gradien Angka: Harmoni Bunga Taman (Coral Rose -> Buttercup Marigold -> Lavender Bloom) */
-      --num-start: #E84A7F;
-      --num-mid: #F28C38;
-      --num-end: #8E54E9;
-      --num-shadow: rgba(232, 74, 127, 0.24);
-      --btn-plus: #F2648D;
-      --btn-plus-hover: #E04E78;
-      --btn-minus: #5EA683;
-      --btn-minus-hover: #4C9170;
-      --btn-step-active: #F2A341;
-      --btn-reset: #9A72CF;
-      --btn-reset-hover: #855DBA;
-      --surface-soft: #FFF2F6;
-      --progress-bg: #F6DCE5;
-      --accent-glow: rgba(242, 100, 141, 0.28);
-      --shadow-card: 0 20px 45px -12px rgba(142, 84, 233, 0.14), 0 8px 20px -8px rgba(242, 100, 141, 0.16);
+      /* Palet: Ivory Cream #FBF8F3, Soft Beige #D0BEAB, Warm Nude #A98E79,
+         Pale Almond #E8DDD0, Taupe Brown #7C6658 */
+      --bg-main: #E8DDD0;
+      --gingham-stripe: rgba(208, 190, 171, 0.50);
+      --card-bg: #FBF8F3;
+      --card-border: #D0BEAB;
+      --line-soft: #D0BEAB;
+      --text-primary: #7C6658;
+      --text-secondary: #7C6658;
+      --stage-bg: #E8DDD0;
+      --box-soft: #E8DDD0;
+      --num-color: #7C6658;
+      --num-shadow: rgba(124, 102, 88, 0.22);
+      --btn-plus: #7C6658;
+      --btn-plus-hover: #6A5548;
+      --btn-plus-border: #6A5548;
+      --btn-minus: #E8DDD0;
+      --btn-minus-hover: #D0BEAB;
+      --btn-step-active: #7C6658;
+      --btn-step-shadow: rgba(124, 102, 88, 0.34);
+      --btn-reset: #A98E79;
+      --btn-reset-hover: #977C68;
+      --btn-tea-bg: #7C6658;
+      --btn-tea-hover: #6A5548;
+      --btn-tea-shadow: rgba(124, 102, 88, 0.30);
+      --surface-soft: #E8DDD0;
+      --progress-bg: #FBF8F3;
+      --progress-fill: #D0BEAB;
+      --progress-half: #A98E79;
+      --progress-full: #7C6658;
+      --accent-glow: rgba(169, 142, 121, 0.45);
+      --shadow-card: 0 20px 45px -12px rgba(124, 102, 88, 0.28), 0 8px 20px -8px rgba(169, 142, 121, 0.32);
     }
 
     * {
@@ -52,13 +65,22 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-main);
-      /*background-image:
-        radial-gradient(circle at 12% 16%, var(--bg-sakura) 0%, transparent 36%),
-        radial-gradient(circle at 88% 18%, var(--bg-buttercup) 0%, transparent 36%),
-        radial-gradient(circle at 15% 86%, var(--bg-bluebell) 0%, transparent 38%),
-        radial-gradient(circle at 86% 84%, var(--bg-lavender) 0%, transparent 38%),
-        radial-gradient(#F2C8D8 1.4px, transparent 1.4px);*/
-      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 22px 22px;
+      /* Pola Kotak-Kotak Gingham Neutral (Solid Hard-Stop) */
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          var(--gingham-stripe) 0px,
+          var(--gingham-stripe) 28px,
+          transparent 28px,
+          transparent 56px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          var(--gingham-stripe) 0px,
+          var(--gingham-stripe) 28px,
+          transparent 28px,
+          transparent 56px
+        );
       color: var(--text-primary);
       min-height: 100vh;
       min-height: 100dvh;
@@ -70,38 +92,12 @@
       position: relative;
     }
 
-    /* Bunga Latar Belakang Lembut Melayang */
-    .bg-garden {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .bg-blossom {
-      position: absolute;
-      opacity: 0.42;
-      animation: gentleSway 7s ease-in-out infinite alternate;
-    }
-
-    .bg-blossom.b1 { top: 6%; left: 7%; width: 54px; animation-delay: 0s; }
-    .bg-blossom.b2 { top: 10%; right: 8%; width: 48px; animation-delay: 1.5s; }
-    .bg-blossom.b3 { bottom: 8%; left: 9%; width: 50px; animation-delay: 2.5s; }
-    .bg-blossom.b4 { bottom: 7%; right: 7%; width: 56px; animation-delay: 1s; }
-
-    @keyframes gentleSway {
-      0%   { transform: translateY(0) rotate(-6deg) scale(0.98); }
-      100% { transform: translateY(-10px) rotate(8deg) scale(1.04); }
-    }
-
-    /* Ukuran ringkas & proporsional di desktop (max-width 375px) */
     .card {
       position: relative;
       z-index: 1;
       width: 100%;
       max-width: 375px;
-      background: var(--card-bg);
+      background-color: var(--card-bg);
       border: 2px solid var(--card-border);
       border-radius: 28px;
       padding: 20px 20px 18px;
@@ -110,64 +106,12 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Hiasan Buket Bunga Warna-warni di Sudut Kartu */
-    .corner-decor {
-      position: absolute;
-      pointer-events: none;
-      z-index: 0;
-      transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-
-    .corner-top-right {
-      top: -10px;
-      right: -10px;
-      width: 112px;
-      height: 112px;
-    }
-
-    .corner-top-left {
-      top: -10px;
-      left: -10px;
-      width: 82px;
-      height: 82px;
-    }
-
-    .corner-bottom-left {
-      bottom: -12px;
-      left: -12px;
-      width: 108px;
-      height: 108px;
-    }
-
-    .corner-bottom-right {
-      bottom: -10px;
-      right: -10px;
-      width: 80px;
-      height: 80px;
-    }
-
-    .card.bloom .corner-top-right {
-      transform: rotate(12deg) scale(1.12);
-    }
-
-    .card.bloom .corner-top-left {
-      transform: rotate(-14deg) scale(1.1);
-    }
-
-    .card.bloom .corner-bottom-left {
-      transform: rotate(-12deg) scale(1.12);
-    }
-
-    .card.bloom .corner-bottom-right {
-      transform: rotate(14deg) scale(1.1);
-    }
-
     .content {
       position: relative;
       z-index: 1;
     }
 
-    /* Header: Bar Kontrol Atas + Judul Rename + Subjudul */
+    /* Header */
     .header {
       margin-bottom: 12px;
     }
@@ -184,9 +128,8 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      background: rgba(255, 253, 251, 0.88);
-      backdrop-filter: blur(4px);
-      border: 1px solid var(--card-border);
+      background-color: var(--box-soft);
+      border: 1px solid var(--line-soft);
       padding: 5px 10px;
       border-radius: 999px;
       font-size: 0.7rem;
@@ -199,31 +142,32 @@
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background: var(--btn-minus);
-      box-shadow: 0 0 0 2.5px rgba(94, 166, 131, 0.24);
+      background-color: var(--text-primary);
+      box-shadow: 0 0 0 2.5px rgba(124, 102, 88, 0.40);
     }
 
     .top-actions {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
     }
 
     .icon-btn {
       width: 34px;
       height: 34px;
       border-radius: 11px;
-      border: 1.5px solid var(--card-border);
-      background: rgba(255, 253, 251, 0.9);
+      border: 1.5px solid var(--line-soft);
+      background-color: var(--box-soft);
       color: var(--text-primary);
       cursor: pointer;
       display: grid;
       place-items: center;
       font-size: 0.95rem;
-      transition: transform 0.18s ease, background-color 0.2s ease;
+      transition: transform 0.18s ease, background-color 0.2s ease, border-color 0.2s ease;
     }
 
     .icon-btn:hover {
+      background-color: var(--btn-minus-hover);
       transform: translateY(-1.5px);
     }
 
@@ -231,7 +175,7 @@
       transform: scale(0.92);
     }
 
-    /* Judul Counter yang Bisa Di-rename + Subjudul */
+    /* Judul Counter yang Bisa Di-rename */
     .title-area {
       text-align: center;
       padding: 2px 4px;
@@ -243,7 +187,7 @@
       justify-content: center;
       gap: 5px;
       max-width: 100%;
-      background: rgba(255, 242, 246, 0.85);
+      background-color: var(--surface-soft);
       border: 1.5px dashed transparent;
       border-radius: 12px;
       padding: 3px 10px;
@@ -253,7 +197,7 @@
     .title-edit-wrapper:hover,
     .title-edit-wrapper:focus-within {
       border-color: var(--card-border);
-      background: var(--card-bg);
+      background-color: var(--card-bg);
     }
 
     .counter-title-input {
@@ -261,7 +205,7 @@
       font-size: 1.12rem;
       font-weight: 700;
       color: var(--text-primary);
-      background: transparent;
+      background-color: transparent;
       border: none;
       outline: none;
       text-align: center;
@@ -272,13 +216,13 @@
 
     .edit-pencil-btn {
       border: none;
-      background: transparent;
-      color: var(--text-secondary);
+      background-color: transparent;
+      color: var(--text-primary);
       font-size: 0.85rem;
       cursor: pointer;
       padding: 2px;
       line-height: 1;
-      opacity: 0.75;
+      opacity: 0.8;
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
 
@@ -287,27 +231,13 @@
       transform: scale(1.12);
     }
 
-    .brand-subtitle {
-      margin-top: 4px;
-      font-size: 0.74rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      letter-spacing: 0.01em;
-    }
-
-    .brand-subtitle em {
-      font-style: italic;
-      font-weight: 700;
-      color: var(--btn-plus);
-    }
-
     /* Area Tampilan Angka Utama */
     .counter-stage {
       position: relative;
-      background: linear-gradient(145deg, #FFF3F7 0%, #FFF9EC 52%, #F5F1FF 100%);
+      background-color: var(--stage-bg);
       border: 1.5px solid var(--card-border);
       border-radius: 22px;
-      padding: 18px 14px 16px;
+      padding: 20px 14px 16px;
       text-align: center;
       margin-bottom: 14px;
       overflow: hidden;
@@ -332,34 +262,31 @@
     }
 
     .milestone-banner.half {
-      background: rgba(242, 163, 65, 0.22);
+      background-color: var(--card-bg);
       color: var(--text-primary);
-      border: 1px solid rgba(242, 163, 65, 0.55);
+      border: 1px solid var(--card-border);
     }
 
     .milestone-banner.full {
-      background: linear-gradient(90deg, rgba(242, 100, 141, 0.22), rgba(154, 114, 207, 0.22));
-      color: var(--text-primary);
-      border: 1px solid var(--btn-plus);
+      background-color: var(--text-primary);
+      color: #FBF8F3;
+      border: 1px solid var(--text-primary);
     }
 
-    /* Angka Fredoka Bergradasi Bunga Taman (Compact di desktop: 3.75rem) */
     .counter-value {
       font-family: 'Fredoka', cursive, sans-serif;
-      font-size: 3.75rem;
+      font-size: 5rem;
       font-weight: 700;
       line-height: 1.05;
-      background: linear-gradient(135deg, var(--num-start) 0%, var(--num-mid) 52%, var(--num-end) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 5px 10px var(--num-shadow));
+      color: var(--num-color);
+      filter: drop-shadow(0 4px 8px var(--num-shadow));
       user-select: none;
       display: inline-block;
       will-change: transform;
       font-variant-numeric: tabular-nums;
     }
 
-    /* Keyframes Animasi Ceria */
+    /* Keyframes Animasi */
     @keyframes cheerUp {
       0%   { transform: scale(0.82) translateY(14px) rotate(-6deg); }
       45%  { transform: scale(1.22) translateY(-10px) rotate(5deg); }
@@ -403,7 +330,7 @@
     .anim-half { animation: halfPulse 0.65s cubic-bezier(0.34, 1.56, 0.64, 1); }
     .anim-full { animation: grandCelebrate 0.85s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
-    /* Gelembung Angka Melayang (+1 / -1 / +5 / -5 / +10 / -10) */
+    /* Gelembung Angka Melayang */
     .delta-pop {
       position: absolute;
       font-family: 'Fredoka', sans-serif;
@@ -419,7 +346,7 @@
       100% { opacity: 0; transform: translate(-50%, -46px) scale(0.95); }
     }
 
-    /* Layer Partikel Bunga Terbang */
+    /* Layer Partikel Terbang */
     .fx-layer {
       position: fixed;
       inset: 0;
@@ -432,11 +359,14 @@
       position: absolute;
       user-select: none;
       pointer-events: none;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
       will-change: transform, opacity;
-      animation: flowerBurst var(--dur, 1.4s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: sparkleBurst var(--dur, 1.4s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
-    @keyframes flowerBurst {
+    @keyframes sparkleBurst {
       0% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
@@ -454,7 +384,7 @@
     .target-box {
       margin-top: 12px;
       padding-top: 10px;
-      border-top: 1px dashed var(--card-border);
+      border-top: 1px dashed var(--line-soft);
     }
 
     .target-header {
@@ -463,14 +393,15 @@
       align-items: center;
       font-size: 0.76rem;
       font-weight: 700;
-      color: var(--text-secondary);
+      color: var(--text-primary);
       margin-bottom: 6px;
     }
 
     .progress-track {
       width: 100%;
       height: 10px;
-      background: var(--progress-bg);
+      background-color: var(--progress-bg);
+      border: 1px solid var(--card-border);
       border-radius: 999px;
       overflow: hidden;
       position: relative;
@@ -480,21 +411,21 @@
       height: 100%;
       width: 0%;
       border-radius: 999px;
-      background: linear-gradient(90deg, #FF759F, #FFB703, #8E54E9);
-      transition: width 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.35s ease;
+      background-color: var(--progress-fill);
+      transition: width 0.38s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.25s ease;
     }
 
     .progress-fill.half-reached {
-      background: linear-gradient(90deg, #F2A341, #FFD166, #FF759F);
-      box-shadow: 0 0 12px rgba(242, 163, 65, 0.55);
+      background-color: var(--progress-half);
+      box-shadow: 0 0 10px var(--accent-glow);
     }
 
     .progress-fill.full-reached {
-      background: linear-gradient(90deg, #5EA683, #80ED99, #FFD166);
-      box-shadow: 0 0 14px rgba(94, 166, 131, 0.65);
+      background-color: var(--progress-full);
+      box-shadow: 0 0 12px var(--accent-glow);
     }
 
-    /* Tombol Kontrol Utama (+ dan -) */
+    /* Tombol Kontrol Utama */
     .main-controls {
       display: grid;
       grid-template-columns: 1fr 1.45fr;
@@ -503,19 +434,17 @@
     }
 
     .btn-action {
-      border: none;
       border-radius: 17px;
       padding: 13px;
       font-family: 'Fredoka', sans-serif;
       font-size: 1.65rem;
       font-weight: 700;
-      color: #FFFDFB;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      box-shadow: 0 6px 15px -5px rgba(87, 39, 66, 0.25);
+      box-shadow: 0 6px 15px -5px rgba(124, 102, 88, 0.30);
       transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -528,17 +457,21 @@
     }
 
     .btn-minus {
-      background: var(--btn-minus);
+      background-color: var(--btn-minus);
+      border: 1.5px solid var(--line-soft);
+      color: var(--text-primary);
     }
     .btn-minus:hover {
-      background: var(--btn-minus-hover);
+      background-color: var(--btn-minus-hover);
     }
 
     .btn-plus {
-      background: linear-gradient(135deg, #FF6B98, #F2648D);
+      background-color: var(--btn-plus);
+      border: 1.5px solid var(--btn-plus-border);
+      color: #FBF8F3;
     }
     .btn-plus:hover {
-      background: linear-gradient(135deg, #F55887, #E04E78);
+      background-color: var(--btn-plus-hover);
     }
 
     /* Kartu Pengaturan Langkah & Target */
@@ -550,7 +483,7 @@
     }
 
     .setting-card {
-      background: rgba(255, 242, 246, 0.85);
+      background-color: var(--surface-soft);
       border: 1.5px solid var(--card-border);
       border-radius: 16px;
       padding: 10px;
@@ -560,7 +493,7 @@
       display: block;
       font-size: 0.71rem;
       font-weight: 700;
-      color: var(--text-secondary);
+      color: var(--text-primary);
       margin-bottom: 6px;
     }
 
@@ -572,7 +505,7 @@
 
     .step-pill {
       border: 1.5px solid var(--card-border);
-      background: var(--card-bg);
+      background-color: var(--card-bg);
       color: var(--text-primary);
       border-radius: 9px;
       padding: 6px 0;
@@ -593,17 +526,17 @@
     }
 
     .step-pill.active {
-      background: var(--btn-step-active);
-      border-color: var(--btn-step-active);
-      color: #FFFDFB;
-      box-shadow: 0 3px 8px -2px rgba(242, 163, 65, 0.45);
+      background-color: var(--btn-step-active);
+      border-color: var(--btn-plus-border);
+      color: #FBF8F3;
+      box-shadow: 0 3px 8px -2px var(--btn-step-shadow);
       transform: translateY(-1px);
     }
 
     .input-mini {
       width: 100%;
       border: 1.5px solid var(--card-border);
-      background: var(--card-bg);
+      background-color: var(--card-bg);
       color: var(--text-primary);
       border-radius: 9px;
       padding: 6px 9px;
@@ -614,14 +547,15 @@
     }
 
     .input-mini:focus {
-      border-color: var(--btn-plus);
+      border-color: var(--text-primary);
     }
 
-    /* Footer & Tombol Reset */
+    /* Footer & Tombol Reset + Traktir Es Teh */
     .footer-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      flex-wrap: wrap;
       gap: 8px;
     }
 
@@ -631,24 +565,38 @@
       font-weight: 600;
     }
 
-    .btn-reset {
-      border: none;
-      background: var(--btn-reset);
-      color: #FFFDFB;
-      padding: 8px 14px;
-      border-radius: 12px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      cursor: pointer;
+    .footer-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .btn-reset,
+    .btn-es-teh {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      justify-content: center;
+      gap: 6px;
+      height: 40px;
+      padding: 0 14px;
+      border-radius: 14px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .btn-reset {
+      border: none;
+      background-color: var(--btn-reset);
+      color: #FBF8F3;
       transition: transform 0.16s ease, background-color 0.2s ease;
     }
 
     .btn-reset:hover {
-      background: var(--btn-reset-hover);
+      background-color: var(--btn-reset-hover);
       transform: translateY(-1.5px);
     }
 
@@ -656,7 +604,26 @@
       transform: scale(0.94);
     }
 
-    /* Penyesuaian Responsif Khusus Layar HP*/
+    .btn-es-teh {
+      width: auto;
+      border: none;
+      background-color: var(--btn-tea-bg);
+      color: #FBF8F3;
+      text-decoration: none;
+      box-shadow: 0 6px 14px -4px var(--btn-tea-shadow);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-es-teh:hover {
+      background-color: var(--btn-tea-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-es-teh:active {
+      transform: scale(0.95);
+    }
+
+    /* Penyesuaian Responsif Khusus Layar HP */
     @media (max-width: 520px) {
       body {
         padding: 14px;
@@ -664,7 +631,6 @@
 
       .card {
         max-width: 100%;
-        /*min-height: 92vh;*/
         padding: 26px 22px;
         border-radius: 26px;
       }
@@ -675,7 +641,7 @@
       }
 
       .counter-value {
-        font-size: clamp(3.6rem, 16vw, 4.35rem);
+        font-size: clamp(4.6rem, 21vw, 5.6rem);
       }
 
       .btn-action {
@@ -690,37 +656,38 @@
 
       .input-mini {
         padding: 8px 10px;
-        font-size: 0.86rem;
-      }
-
-      .btn-reset {
-        padding: 9px 16px;
-        font-size: 0.82rem;
+        font-size: 16px;
       }
 
       .shortcut-hint {
         display: none;
       }
 
-      .footer-bar {
-        justify-content: flex-end;
+      .footer-actions {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1.3fr;
+        gap: 10px;
       }
 
-      .bg-blossom {
-        opacity: 0.28;
+      .btn-reset,
+      .btn-es-teh {
+        width: 100%;
+        height: 46px;
+        font-size: 0.9rem;
       }
     }
 
     /* Efek Pendaran Kartu saat Selebrasi */
     @keyframes cardHalfGlow {
       0%   { box-shadow: var(--shadow-card); }
-      40%  { box-shadow: 0 0 0 8px rgba(242, 163, 65, 0.35), var(--shadow-card); }
+      40%  { box-shadow: 0 0 0 8px var(--accent-glow), var(--shadow-card); }
       100% { box-shadow: var(--shadow-card); }
     }
 
     @keyframes cardFullParty {
       0%   { transform: scale(1); box-shadow: var(--shadow-card); }
-      25%  { transform: scale(1.025); box-shadow: 0 0 0 12px rgba(255, 209, 102, 0.45), var(--shadow-card); }
+      25%  { transform: scale(1.025); box-shadow: 0 0 0 12px var(--accent-glow), var(--shadow-card); }
       55%  { transform: scale(0.99); box-shadow: 0 0 0 18px var(--accent-glow), var(--shadow-card); }
       100% { transform: scale(1); box-shadow: var(--shadow-card); }
     }
@@ -732,7 +699,7 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(54, 24, 41, 0.52);
+      background-color: rgba(124, 102, 88, 0.45);
       backdrop-filter: blur(4px);
       display: none;
       align-items: center;
@@ -748,7 +715,7 @@
     .modal-box {
       width: 100%;
       max-width: 340px;
-      background: var(--card-bg);
+      background-color: var(--card-bg);
       border: 2px solid var(--card-border);
       border-radius: 26px;
       padding: 24px;
@@ -791,139 +758,23 @@
     }
 
     .btn-cancel {
-      background: var(--surface-soft);
+      background-color: var(--surface-soft);
       color: var(--text-primary);
     }
 
     .btn-confirm-reset {
-      background: var(--btn-plus);
-      border-color: var(--btn-plus);
-      color: #FFFDFB;
+      background-color: var(--btn-plus);
+      border-color: var(--btn-plus-border);
+      color: #FBF8F3;
     }
- .footer-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.footer-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto; /* Menjaga posisi tetap di kanan saat di desktop */
-}
-
-.btn-reset,
-.btn-es-teh {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: 40px;
-  padding: 0 14px;
-  border-radius: 14px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.84rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.btn-es-teh {
-  width: auto; /* Ubah dari 100% menjadi auto agar tidak turun baris */
-  background: linear-gradient(135deg, #F4A261 0%, #E76F51 100%);
-  color: #FFFDF9;
-  text-decoration: none;
-  box-shadow: 0 6px 14px -4px rgba(231, 111, 81, 0.35);
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, filter 0.2s ease;
-}
-
-.btn-es-teh:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px -4px rgba(231, 111, 81, 0.45);
-  filter: brightness(1.04);
-}
-
-.btn-es-teh:active {
-  transform: scale(0.95);
-}
-
-/* Responsif di layar HP: kedua tombol berbagi lebar 50% : 50% secara sejajar */
-@media (max-width: 520px) {
-  .footer-actions {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 10px;
-  }
-
-  .btn-reset,
-  .btn-es-teh {
-    width: 100%;
-    height: 46px;
-    font-size: 0.9rem;
-  }
-}
-
-
-  
   </style>
 </head>
 <body>
-  <!-- Bunga Latar Belakang Lembut Warna-warni -->
-  <div class="bg-garden" aria-hidden="true">
-    <!-- Sakura Pink -->
-    <svg class="bg-blossom b1" viewBox="0 0 80 80" fill="none">
-      <g transform="translate(40,40)">
-        <ellipse cx="0" cy="-16" rx="8" ry="13" fill="#FF8FAB"/>
-        <ellipse cx="15" cy="-5" rx="8" ry="13" transform="rotate(72 15 -5)" fill="#FF8FAB"/>
-        <ellipse cx="9" cy="13" rx="8" ry="13" transform="rotate(144 9 13)" fill="#FF8FAB"/>
-        <ellipse cx="-9" cy="13" rx="8" ry="13" transform="rotate(216 -9 13)" fill="#FF8FAB"/>
-        <ellipse cx="-15" cy="-5" rx="8" ry="13" transform="rotate(288 -15 -5)" fill="#FF8FAB"/>
-        <circle cx="0" cy="0" r="6.5" fill="#FFD166"/>
-      </g>
-    </svg>
-    <!-- Buttercup Yellow Daisy -->
-    <svg class="bg-blossom b2" viewBox="0 0 80 80" fill="none">
-      <g transform="translate(40,40)">
-        <ellipse cx="0" cy="-16" rx="7.5" ry="13" fill="#FFD166"/>
-        <ellipse cx="14" cy="-8" rx="7.5" ry="13" transform="rotate(60 14 -8)" fill="#FFD166"/>
-        <ellipse cx="14" cy="8" rx="7.5" ry="13" transform="rotate(120 14 8)" fill="#FFD166"/>
-        <ellipse cx="0" cy="16" rx="7.5" ry="13" transform="rotate(180 0 16)" fill="#FFD166"/>
-        <ellipse cx="-14" cy="8" rx="7.5" ry="13" transform="rotate(240 -14 8)" fill="#FFD166"/>
-        <ellipse cx="-14" cy="-8" rx="7.5" ry="13" transform="rotate(300 -14 -8)" fill="#FFD166"/>
-        <circle cx="0" cy="0" r="7" fill="#F28C38"/>
-      </g>
-    </svg>
-    <!-- Sky Bluebell -->
-    <svg class="bg-blossom b3" viewBox="0 0 80 80" fill="none">
-      <g transform="translate(40,40)">
-        <ellipse cx="0" cy="-15" rx="8" ry="12" fill="#72BDFF"/>
-        <ellipse cx="15" cy="-4" rx="8" ry="12" transform="rotate(72 15 -4)" fill="#72BDFF"/>
-        <ellipse cx="9" cy="12" rx="8" ry="12" transform="rotate(144 9 12)" fill="#72BDFF"/>
-        <ellipse cx="-9" cy="12" rx="8" ry="12" transform="rotate(216 -9 12)" fill="#72BDFF"/>
-        <ellipse cx="-15" cy="-4" rx="8" ry="12" transform="rotate(288 -15 -4)" fill="#72BDFF"/>
-        <circle cx="0" cy="0" r="6" fill="#FFE66D"/>
-      </g>
-    </svg>
-    <!-- Lavender Lilac -->
-    <svg class="bg-blossom b4" viewBox="0 0 80 80" fill="none">
-      <g transform="translate(40,40)">
-        <ellipse cx="0" cy="-16" rx="8" ry="13" fill="#B892FF"/>
-        <ellipse cx="15" cy="-5" rx="8" ry="13" transform="rotate(72 15 -5)" fill="#B892FF"/>
-        <ellipse cx="9" cy="13" rx="8" ry="13" transform="rotate(144 9 13)" fill="#B892FF"/>
-        <ellipse cx="-9" cy="13" rx="8" ry="13" transform="rotate(216 -9 13)" fill="#B892FF"/>
-        <ellipse cx="-15" cy="-5" rx="8" ry="13" transform="rotate(288 -15 -5)" fill="#B892FF"/>
-        <circle cx="0" cy="0" r="6.5" fill="#FF9EBB"/>
-      </g>
-    </svg>
-  </div>
-
   <!-- Layer Partikel Perayaan -->
   <div class="fx-layer" id="fxLayer"></div>
 
-      <div class="content">
+  <main class="card" id="mainCard">
+    <div class="content">
       <!-- Header -->
       <header class="header">
         <div class="header-top-bar">
@@ -949,7 +800,6 @@
             />
             <button type="button" class="edit-pencil-btn" id="editTitleBtn" title="Ubah Nama Counter" aria-label="Edit Nama">✏️</button>
           </div>
-          <!-- <p class="brand-subtitle">by <em>flovwering</em> with love, to count your project 🥰❤️</p> -->
         </div>
       </header>
 
@@ -994,20 +844,16 @@
         </div>
       </section>
 
-      <!-- Footer Pintasan & Tombol Reset -->
+      <!-- Footer Pintasan, Tombol Reset & Traktir Es Teh -->
       <footer class="footer-bar">
-  <span class="shortcut-hint">Spasi / ↑ : + &nbsp;|&nbsp; ↓ : − &nbsp;|&nbsp; R : Reset</span>
-  <div class="footer-actions">
-    <button type="button" class="btn-reset" id="btnReset">↺ Reset</button>
-    <a href="https://teer.id/flovwering" target="_blank" rel="noopener noreferrer" class="btn-es-teh">
-      <span class="tea-icon">🍹</span>
-      <span>Traktir Es Teh</span>
-    </a>
-  </div>
-</footer>
-
-</div>
-
+        <span class="shortcut-hint">Spasi / ↑ : + &nbsp;|&nbsp; ↓ : − &nbsp;|&nbsp; R : Reset</span>
+        <div class="footer-actions">
+          <button type="button" class="btn-reset" id="btnReset">↺ Reset</button>
+          <a href="https://teer.id/flovwering" target="_blank" rel="noopener noreferrer" class="btn-es-teh">
+            <span class="tea-icon">🍹</span>
+            <span>Traktir Es Teh</span>
+          </a>
+        </div>
       </footer>
     </div>
   </main>
@@ -1025,7 +871,7 @@
   </div>
 
   <script>
-    const STORAGE_KEY = 'aesthetic_cheerful_counter_v2';
+    const STORAGE_KEY = 'aesthetic_cheerful_counter_v14';
     const ALLOWED_STEPS = [1, 5, 10];
 
     let state = {
@@ -1033,11 +879,9 @@
       count: 0,
       step: 1,
       target: 50,
-      sound: true,
-      theme: 'flower' // 'flower' | 'heart' | 'ribbon'
+      sound: true
     };
 
-    // Muat state tersimpan dari localStorage saat halaman dibuka/di-refresh
     try {
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
       if (saved && typeof saved === 'object') {
@@ -1047,21 +891,13 @@
       console.error('Gagal membaca penyimpanan lokal:', e);
     }
 
-    // Validasi nilai state agar selalu aman dan sesuai aturan
     state.count = Number.isFinite(Number(state.count)) ? Math.max(0, Number(state.count)) : 0;
     state.step = ALLOWED_STEPS.includes(Number(state.step)) ? Number(state.step) : 1;
     state.target = Number.isFinite(Number(state.target)) && Number(state.target) > 0 ? Number(state.target) : 50;
-    if (!['flower', 'heart', 'ribbon'].includes(state.theme)) {
-      state.theme = 'flower';
-    }
 
-    // Referensi Elemen DOM
     const mainCard = document.getElementById('mainCard');
-    const decorTopRight = document.getElementById('decorTopRight');
-    const decorBottomLeft = document.getElementById('decorBottomLeft');
     const counterTitleInput = document.getElementById('counterTitleInput');
     const editTitleBtn = document.getElementById('editTitleBtn');
-    const themeBtns = document.querySelectorAll('.theme-btn');
     const counterStage = document.getElementById('counterStage');
     const counterDisplay = document.getElementById('counterDisplay');
     const milestoneBanner = document.getElementById('milestoneBanner');
@@ -1080,14 +916,13 @@
     const confirmReset = document.getElementById('confirmReset');
     const fxLayer = document.getElementById('fxLayer');
 
-    // ==========================================
-    // KONFIGURASI EFEK PARTIKEL TAMAN BUNGA WARNA-WARNI
-    // ==========================================
-    const FLOWER_GARDEN_FX = {
-      stepFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻'],
-      halfFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻', '✨'],
-      fullFlowers: ['🌸', '🌼', '🌺', '🌻', '🌷', '🪻', '💐', '🏵️', '✨'],
-      colors: ['#FF759F', '#FFD166', '#B892FF', '#72BDFF', '#FF9770', '#68B08B']
+    /* Partikel bergaya sparkle: ⋆˙⟡ ⋆.˚ ⊹₊⟡ ⋆ + tambahan agar lebih beragam */
+    const PARTICLE_CONFIG = {
+      step: ['⋆', '˙', '⟡', '˚', '⊹', '₊', '⋆˙⟡', '⋆.˚', '⊹₊⟡'],
+      half: ['⋆', '⟡', '⊹', '✦', '✧', '⋆˙⟡', '⋆.˚', '⊹₊⟡', '₊˚⊹', '♡'],
+      full: ['⋆', '⟡', '⊹', '✦', '✧', '❋', '✿', '♡', '⋆˙⟡', '⋆.˚', '⊹₊⟡', '₊˚⊹', '⋆⁺₊⋆', '˚₊‧'],
+      // Warna-warni lembut (pastel tua), tidak terlalu mencolok
+      colors: ['#E58F9B', '#EDB26B', '#8FBF98', '#79AEDB', '#A996D6', '#E39A74', '#7CBFB8', '#D68FB8']
     };
 
     function saveState() {
@@ -1098,9 +933,6 @@
       }
     }
 
-    // ==========================================
-    // WEB AUDIO API: EFEK SUARA BERBEDA & CERIA
-    // ==========================================
     let audioCtx = null;
     function getAudioCtx() {
       if (!audioCtx) {
@@ -1136,22 +968,19 @@
       osc.stop(startTime + duration + 0.02);
     }
 
-    // 1. Suara Tambah (+): Nada pop naik cerah + kilau nada tinggi
     function soundPlus() {
       if (!state.sound) return;
       const now = getAudioCtx().currentTime;
-      playTone(523.25, 'sine', now, 0.14, 0.18, 783.99);       // C5 -> G5
-      playTone(1046.5, 'triangle', now + 0.04, 0.11, 0.09);    // Kilau C6
+      playTone(523.25, 'sine', now, 0.14, 0.18, 783.99);
+      playTone(1046.5, 'triangle', now + 0.04, 0.11, 0.09);
     }
 
-    // 2. Suara Kurang (-): Nada boop turun lembut
     function soundMinus() {
       if (!state.sound) return;
       const now = getAudioCtx().currentTime;
-      playTone(440.0, 'triangle', now, 0.16, 0.18, 277.18);    // A4 -> C#4
+      playTone(440.0, 'triangle', now, 0.16, 0.18, 277.18);
     }
 
-    // 3. Suara Reset: Sapuan turun lembut
     function soundReset() {
       if (!state.sound) return;
       const now = getAudioCtx().currentTime;
@@ -1159,7 +988,6 @@
       playTone(392.0, 'sine', now + 0.08, 0.16, 0.14, 261.63);
     }
 
-    // 4. Suara Pilih Langkah (+1 / +5 / +10): Klik nada lembut
     function soundStepSelect(stepVal) {
       if (!state.sound) return;
       const now = getAudioCtx().currentTime;
@@ -1167,28 +995,26 @@
       playTone(baseFreq, 'sine', now, 0.09, 0.12, baseFreq * 1.15);
     }
 
-    // 5. Suara Milestone 50%: Melodi 3 nada ceria
     function soundHalfMilestone() {
       if (!state.sound) return;
       const now = getAudioCtx().currentTime;
-      const notes = [523.25, 659.25, 783.99]; // C5 - E5 - G5
+      const notes = [523.25, 659.25, 783.99];
       notes.forEach((n, i) => {
         playTone(n, 'triangle', now + i * 0.09, 0.24, 0.18);
         playTone(n * 2, 'sine', now + i * 0.09, 0.2, 0.06);
       });
     }
 
-    // 6. Suara Milestone 100%: Fanfare harmonis meriah
     function soundFullMilestone() {
       if (!state.sound) return;
       const now = getAudioCtx().currentTime;
       const fanfare = [
-        { f: 523.25, t: 0.00, d: 0.16 },  // C5
-        { f: 659.25, t: 0.08, d: 0.16 },  // E5
-        { f: 783.99, t: 0.16, d: 0.16 },  // G5
-        { f: 1046.50, t: 0.25, d: 0.45 }, // C6
-        { f: 1318.51, t: 0.28, d: 0.45 }, // E6
-        { f: 1567.98, t: 0.31, d: 0.50 }  // G6
+        { f: 523.25, t: 0.00, d: 0.16 },
+        { f: 659.25, t: 0.08, d: 0.16 },
+        { f: 783.99, t: 0.16, d: 0.16 },
+        { f: 1046.50, t: 0.25, d: 0.45 },
+        { f: 1318.51, t: 0.28, d: 0.45 },
+        { f: 1567.98, t: 0.31, d: 0.50 }
       ];
       fanfare.forEach(item => {
         playTone(item.f, 'triangle', now + item.t, item.d, 0.17);
@@ -1196,32 +1022,30 @@
       });
     }
 
-    // ==========================================
-    // EFEK PARTIKEL KELOPAK BUNGA WARNA-WARNI (SAAT +, 50%, & 100%)
-    // ==========================================
-    function spawnFlowerParticles(level) {
+    function spawnParticles(level) {
       const rect = counterStage.getBoundingClientRect();
       const originX = rect.left + rect.width / 2;
       const originY = rect.top + rect.height / 2;
 
       const isFull = level === 'full';
       const isHalf = level === 'half';
-      const count = isFull ? 64 : isHalf ? 28 : 8;
+      const count = isFull ? 48 : isHalf ? 26 : 8;
       const shapes = isFull
-        ? FLOWER_GARDEN_FX.fullFlowers
+        ? PARTICLE_CONFIG.full
         : isHalf
-          ? FLOWER_GARDEN_FX.halfFlowers
-          : FLOWER_GARDEN_FX.stepFlowers;
+          ? PARTICLE_CONFIG.half
+          : PARTICLE_CONFIG.step;
 
       for (let i = 0; i < count; i++) {
         const el = document.createElement('span');
         el.className = 'confetti-piece';
 
         const shape = shapes[Math.floor(Math.random() * shapes.length)];
-        const color = FLOWER_GARDEN_FX.colors[Math.floor(Math.random() * FLOWER_GARDEN_FX.colors.length)];
+        const color = PARTICLE_CONFIG.colors[Math.floor(Math.random() * PARTICLE_CONFIG.colors.length)];
         el.textContent = shape;
         el.style.color = color;
-        el.style.fontSize = (isFull ? (15 + Math.random() * 14) : isHalf ? (13 + Math.random() * 10) : (12 + Math.random() * 7)) + 'px';
+        // Glyph sparkle cenderung kecil, jadi ukurannya dibuat sedikit lebih besar
+        el.style.fontSize = (isFull ? (20 + Math.random() * 16) : isHalf ? (18 + Math.random() * 12) : (16 + Math.random() * 9)) + 'px';
 
         const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
         const distance = isFull
@@ -1249,7 +1073,7 @@
       const bubble = document.createElement('span');
       bubble.className = 'delta-pop';
       bubble.textContent = delta > 0 ? `+${delta}` : `${delta}`;
-      bubble.style.color = delta > 0 ? 'var(--btn-plus)' : 'var(--btn-minus)';
+      bubble.style.color = delta > 0 ? '#7C6658' : '#A98E79';
       bubble.style.left = (45 + Math.random() * 10) + '%';
       bubble.style.top = '38%';
       counterStage.appendChild(bubble);
@@ -1257,25 +1081,19 @@
     }
 
     function triggerClassAnim(el, className) {
-      el.classList.remove('anim-up', 'anim-down', 'anim-reset', 'anim-half', 'anim-full', 'celebrate-half', 'celebrate-full', 'bloom');
+      el.classList.remove('anim-up', 'anim-down', 'anim-reset', 'anim-half', 'anim-full', 'celebrate-half', 'celebrate-full');
       void el.offsetWidth;
       el.classList.add(className);
     }
 
-    // ==========================================
-    // RENDER UI & LOGIKA MILESTONE
-    // ==========================================
     function render(actionType = null, prevCount = state.count) {
       if (document.activeElement !== counterTitleInput) {
         counterTitleInput.value = state.title || 'My Project Counter';
       }
 
       counterDisplay.textContent = state.count.toLocaleString('id-ID');
-
-      // Ikon Suara
       soundToggle.textContent = state.sound ? '🔊' : '🔇';
 
-      // Pilihan Langkah (+1, +5, +10)
       stepPills.forEach(btn => {
         const btnStep = Number(btn.dataset.step);
         const isActive = btnStep === Number(state.step);
@@ -1283,7 +1101,6 @@
         btn.setAttribute('aria-pressed', String(isActive));
       });
 
-      // Target & Progress Bar
       const target = Number(state.target);
       if (document.activeElement !== targetInput) {
         targetInput.value = target > 0 ? target : '';
@@ -1308,36 +1125,31 @@
 
       if (target > 0 && pct >= 100) {
         progressFill.classList.add('full-reached');
-        milestoneBanner.textContent = '💐 Target 100% Tercapai! Selamat!';
+        milestoneBanner.textContent = '🎉 Target 100% Tercapai! Selamat!';
         milestoneBanner.classList.add('show', 'full');
       } else if (target > 0 && pct >= 50) {
         progressFill.classList.add('half-reached');
-        milestoneBanner.textContent = '🌼 Sudah setengah jalan! Semangat!';
+        milestoneBanner.textContent = '✨ Sudah setengah jalan! Semangat!';
         milestoneBanner.classList.add('show', 'half');
       }
 
-      // Cek Milestone 50% & 100% saat hitungan naik
       const crossed100 = actionType === 'plus' && target > 0 && prevPct < 100 && pct >= 100;
       const crossed50 = actionType === 'plus' && target > 0 && prevPct < 50 && pct >= 50 && pct < 100;
 
       if (crossed100) {
         triggerClassAnim(counterDisplay, 'anim-full');
         triggerClassAnim(mainCard, 'celebrate-full');
-        mainCard.classList.add('bloom');
         soundFullMilestone();
-        spawnFlowerParticles('full');
+        spawnParticles('full');
       } else if (crossed50) {
         triggerClassAnim(counterDisplay, 'anim-half');
         triggerClassAnim(mainCard, 'celebrate-half');
-        mainCard.classList.add('bloom');
         soundHalfMilestone();
-        spawnFlowerParticles('half');
+        spawnParticles('half');
       } else if (actionType === 'plus') {
         triggerClassAnim(counterDisplay, 'anim-up');
-        mainCard.classList.add('bloom');
-        setTimeout(() => mainCard.classList.remove('bloom'), 450);
         soundPlus();
-        spawnFlowerParticles('step');
+        spawnParticles('step');
       } else if (actionType === 'minus') {
         triggerClassAnim(counterDisplay, 'anim-down');
         soundMinus();
@@ -1367,11 +1179,9 @@
       render('minus', prev);
     }
 
-    // Event Listeners Tombol Utama
     btnPlus.addEventListener('click', increment);
     btnMinus.addEventListener('click', decrement);
 
-    // Event Delegation & Direct Listener untuk Pilihan Langkah (+1, +5, dan +10)
     function selectStep(newStep) {
       const parsedStep = Number(newStep);
       if (!ALLOWED_STEPS.includes(parsedStep)) return;
@@ -1398,7 +1208,6 @@
       render();
     });
 
-    // Rename Judul Counter
     counterTitleInput.addEventListener('input', (e) => {
       state.title = e.target.value;
       saveState();
@@ -1423,7 +1232,6 @@
       counterTitleInput.select();
     });
 
-    // Modal Konfirmasi Reset
     btnReset.addEventListener('click', () => {
       resetModal.classList.add('open');
     });
@@ -1443,7 +1251,6 @@
       if (e.target === resetModal) resetModal.classList.remove('open');
     });
 
-    // Pintasan Keyboard
     document.addEventListener('keydown', (e) => {
       if (document.activeElement === targetInput || document.activeElement === counterTitleInput) return;
       if (resetModal.classList.contains('open')) {
@@ -1463,7 +1270,6 @@
       }
     });
 
-    // Jalankan saat halaman dimuat
     render();
   </script>
 </body>
