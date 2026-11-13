@@ -1,4 +1,3 @@
-  <title>Counter Project🌸</title>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,10 +17,10 @@
        ========================================== */
     :root {
       --bg-main: #FFF8F3;
-      --bg-sakura: rgba(255, 143, 171, 0.22);
+      /*--bg-sakura: rgba(255, 143, 171, 0.22);
       --bg-buttercup: rgba(255, 209, 102, 0.24);
       --bg-lavender: rgba(184, 146, 255, 0.20);
-      --bg-bluebell: rgba(114, 189, 255, 0.20);
+      --bg-bluebell: rgba(114, 189, 255, 0.20);*/
       --card-bg: #FFFDFB;
       --card-border: #F5C6D6;
       --text-primary: #572742;
@@ -53,12 +52,12 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-main);
-      background-image:
+      /*background-image:
         radial-gradient(circle at 12% 16%, var(--bg-sakura) 0%, transparent 36%),
         radial-gradient(circle at 88% 18%, var(--bg-buttercup) 0%, transparent 36%),
         radial-gradient(circle at 15% 86%, var(--bg-bluebell) 0%, transparent 38%),
         radial-gradient(circle at 86% 84%, var(--bg-lavender) 0%, transparent 38%),
-        radial-gradient(#F2C8D8 1.4px, transparent 1.4px);
+        radial-gradient(#F2C8D8 1.4px, transparent 1.4px);*/
       background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 22px 22px;
       color: var(--text-primary);
       min-height: 100vh;
@@ -924,111 +923,7 @@
   <!-- Layer Partikel Perayaan -->
   <div class="fx-layer" id="fxLayer"></div>
 
-  <main class="card" id="mainCard">
-    <!-- Buket Bunga Kanan Atas: Sakura Pink + Buttercup Kuning + Lavender + Daun Sage -->
-    <div class="corner-decor corner-top-right" aria-hidden="true">
-      <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Dedaunan Sage -->
-        <path d="M90 36C72 28 56 38 54 54C70 56 84 48 90 36Z" fill="#68B08B" opacity="0.9"/>
-        <path d="M96 72C108 58 106 40 92 34C84 48 86 62 96 72Z" fill="#5EA683" opacity="0.82"/>
-        <path d="M62 24C52 14 38 16 34 28C46 32 56 30 62 24Z" fill="#82C4A1" opacity="0.85"/>
-        <!-- Bunga Utama: Pink Sakura -->
-        <g transform="translate(92, 36)">
-          <ellipse cx="0" cy="-17" rx="9" ry="14" fill="#FF759F"/>
-          <ellipse cx="16" cy="-5" rx="9" ry="14" transform="rotate(72 16 -5)" fill="#FF759F"/>
-          <ellipse cx="10" cy="14" rx="9" ry="14" transform="rotate(144 10 14)" fill="#FF759F"/>
-          <ellipse cx="-10" cy="14" rx="9" ry="14" transform="rotate(216 -10 14)" fill="#FF759F"/>
-          <ellipse cx="-16" cy="-5" rx="9" ry="14" transform="rotate(288 -16 -5)" fill="#FF759F"/>
-          <circle cx="0" cy="0" r="7.5" fill="#FFD166"/>
-        </g>
-        <!-- Bunga Pendamping 1: Buttercup Kuning -->
-        <g transform="translate(60, 22)">
-          <ellipse cx="0" cy="-10" rx="5.5" ry="8.5" fill="#FFD166"/>
-          <ellipse cx="9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(72 9.5 -3)" fill="#FFD166"/>
-          <ellipse cx="6" cy="8" rx="5.5" ry="8.5" transform="rotate(144 6 8)" fill="#FFD166"/>
-          <ellipse cx="-6" cy="8" rx="5.5" ry="8.5" transform="rotate(216 -6 8)" fill="#FFD166"/>
-          <ellipse cx="-9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(288 -9.5 -3)" fill="#FFD166"/>
-          <circle cx="0" cy="0" r="4.5" fill="#F28C38"/>
-        </g>
-        <!-- Bunga Pendamping 2: Lavender Lilac -->
-        <g transform="translate(106, 68)">
-          <ellipse cx="0" cy="-9" rx="5" ry="8" fill="#B892FF"/>
-          <ellipse cx="8.5" cy="-3" rx="5" ry="8" transform="rotate(72 8.5 -3)" fill="#B892FF"/>
-          <ellipse cx="5.5" cy="7.5" rx="5" ry="8" transform="rotate(144 5.5 7.5)" fill="#B892FF"/>
-          <ellipse cx="-5.5" cy="7.5" rx="5" ry="8" transform="rotate(216 -5.5 7.5)" fill="#B892FF"/>
-          <ellipse cx="-8.5" cy="-3" rx="5" ry="8" transform="rotate(288 -8.5 -3)" fill="#B892FF"/>
-          <circle cx="0" cy="0" r="4" fill="#FF9EBB"/>
-        </g>
-      </svg>
-    </div>
-
-    <!-- Bunga Kecil Kiri Atas: Sky Bluebell & Daun -->
-    <div class="corner-decor corner-top-left" aria-hidden="true">
-      <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M28 28C42 22 52 30 52 42C40 44 32 38 28 28Z" fill="#68B08B" opacity="0.82"/>
-        <g transform="translate(26, 26)">
-          <ellipse cx="0" cy="-11" rx="6" ry="9.5" fill="#72BDFF"/>
-          <ellipse cx="10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(72 10.5 -3.5)" fill="#72BDFF"/>
-          <ellipse cx="6.5" cy="9" rx="6" ry="9.5" transform="rotate(144 6.5 9)" fill="#72BDFF"/>
-          <ellipse cx="-6.5" cy="9" rx="6" ry="9.5" transform="rotate(216 -6.5 9)" fill="#72BDFF"/>
-          <ellipse cx="-10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(288 -10.5 -3.5)" fill="#72BDFF"/>
-          <circle cx="0" cy="0" r="4.8" fill="#FFD166"/>
-        </g>
-      </svg>
-    </div>
-
-    <!-- Buket Bunga Kiri Bawah: Lavender Ungu + Peach Coral + Sky Bluebell + Daun Sage -->
-    <div class="corner-decor corner-bottom-left" aria-hidden="true">
-      <svg viewBox="0 0 130 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Dedaunan Sage -->
-        <path d="M38 92C56 100 72 90 74 74C58 72 44 80 38 92Z" fill="#68B08B" opacity="0.9"/>
-        <path d="M32 56C20 70 22 88 36 94C44 80 42 66 32 56Z" fill="#5EA683" opacity="0.82"/>
-        <!-- Bunga Utama: Lavender Lilac -->
-        <g transform="translate(36, 92)">
-          <ellipse cx="0" cy="-17" rx="9" ry="14" fill="#B892FF"/>
-          <ellipse cx="16" cy="-5" rx="9" ry="14" transform="rotate(72 16 -5)" fill="#B892FF"/>
-          <ellipse cx="10" cy="14" rx="9" ry="14" transform="rotate(144 10 14)" fill="#B892FF"/>
-          <ellipse cx="-10" cy="14" rx="9" ry="14" transform="rotate(216 -10 14)" fill="#B892FF"/>
-          <ellipse cx="-16" cy="-5" rx="9" ry="14" transform="rotate(288 -16 -5)" fill="#B892FF"/>
-          <circle cx="0" cy="0" r="7.5" fill="#FFD166"/>
-        </g>
-        <!-- Bunga Pendamping 1: Peach Coral -->
-        <g transform="translate(68, 106)">
-          <ellipse cx="0" cy="-10" rx="5.5" ry="8.5" fill="#FF9770"/>
-          <ellipse cx="9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(72 9.5 -3)" fill="#FF9770"/>
-          <ellipse cx="6" cy="8" rx="5.5" ry="8.5" transform="rotate(144 6 8)" fill="#FF9770"/>
-          <ellipse cx="-6" cy="8" rx="5.5" ry="8.5" transform="rotate(216 -6 8)" fill="#FF9770"/>
-          <ellipse cx="-9.5" cy="-3" rx="5.5" ry="8.5" transform="rotate(288 -9.5 -3)" fill="#FF9770"/>
-          <circle cx="0" cy="0" r="4.5" fill="#FFF3B0"/>
-        </g>
-        <!-- Bunga Pendamping 2: Sky Bluebell -->
-        <g transform="translate(22, 60)">
-          <ellipse cx="0" cy="-9" rx="5" ry="8" fill="#72BDFF"/>
-          <ellipse cx="8.5" cy="-3" rx="5" ry="8" transform="rotate(72 8.5 -3)" fill="#72BDFF"/>
-          <ellipse cx="5.5" cy="7.5" rx="5" ry="8" transform="rotate(144 5.5 7.5)" fill="#72BDFF"/>
-          <ellipse cx="-5.5" cy="7.5" rx="5" ry="8" transform="rotate(216 -5.5 7.5)" fill="#72BDFF"/>
-          <ellipse cx="-8.5" cy="-3" rx="5" ry="8" transform="rotate(288 -8.5 -3)" fill="#72BDFF"/>
-          <circle cx="0" cy="0" r="4" fill="#FFD166"/>
-        </g>
-      </svg>
-    </div>
-
-    <!-- Bunga Kecil Kanan Bawah: Buttercup Kuning & Daun -->
-    <div class="corner-decor corner-bottom-right" aria-hidden="true">
-      <svg viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M62 62C48 68 38 60 38 48C50 46 58 52 62 62Z" fill="#68B08B" opacity="0.82"/>
-        <g transform="translate(64, 64)">
-          <ellipse cx="0" cy="-11" rx="6" ry="9.5" fill="#FFD166"/>
-          <ellipse cx="10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(72 10.5 -3.5)" fill="#FFD166"/>
-          <ellipse cx="6.5" cy="9" rx="6" ry="9.5" transform="rotate(144 6.5 9)" fill="#FFD166"/>
-          <ellipse cx="-6.5" cy="9" rx="6" ry="9.5" transform="rotate(216 -6.5 9)" fill="#FFD166"/>
-          <ellipse cx="-10.5" cy="-3.5" rx="6" ry="9.5" transform="rotate(288 -10.5 -3.5)" fill="#FFD166"/>
-          <circle cx="0" cy="0" r="4.8" fill="#FF759F"/>
-        </g>
-      </svg>
-    </div>
-
-    <div class="content">
+      <div class="content">
       <!-- Header -->
       <header class="header">
         <div class="header-top-bar">
