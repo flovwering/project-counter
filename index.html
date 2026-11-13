@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Counter Project</title>
+  <title>Counter Project🌸</title>
   <!-- Ikon Tab Browser (Favicon) -->
   <link rel="icon" type="image/png" href="rajuthif.png" />
   <link rel="apple-touch-icon" href="rajuthif.png" />
@@ -114,7 +114,24 @@
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background-color: var(--bg-main);
-      /* Pola Kotak-Kotak Gingham Neutral (Solid Hard-Stop) */
+      color: var(--text-primary);
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Pola Kotak-Kotak Gingham (Solid Hard-Stop) di layer sendiri agar bisa di-blur tanpa memburamkan isi */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: -24px;
+      z-index: 0;
+      pointer-events: none;
       background-image:
         repeating-linear-gradient(
           0deg,
@@ -130,15 +147,7 @@
           transparent 28px,
           transparent 56px
         );
-      color: var(--text-primary);
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      overflow-x: hidden;
-      position: relative;
+      filter: blur(1px);
     }
 
     .card {
